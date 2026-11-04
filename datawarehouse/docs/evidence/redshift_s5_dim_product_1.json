@@ -1,0 +1,30 @@
+{
+  "name": "s5_dim_product_1",
+  "sql": "select product_sk, product_id, category, valid_from, valid_to, is_current from marts.dim_product where product_id = 1 order by valid_from",
+  "columns": [
+    "product_sk",
+    "product_id",
+    "category",
+    "valid_from",
+    "valid_to",
+    "is_current"
+  ],
+  "rows": [
+    [
+      "4fe90e2ee856c44d4857ea4f72a5a811",
+      1,
+      "Electrónica",
+      "2025-01-01 00:00:00",
+      "2025-07-01 00:00:00",
+      false
+    ],
+    [
+      "64216e07ad44bc11a012b1d089e4ffd4",
+      1,
+      "Hogar",
+      "2025-07-01 00:00:00",
+      true,
+      true
+    ]
+  ]
+}

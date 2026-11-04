@@ -1,0 +1,18 @@
+{
+  "dag_id": "dw_sources_admin",
+  "run_id": "src_03_simulate_changes",
+  "conf": {
+    "action": "simulate_changes"
+  },
+  "state": "success",
+  "tasks": {
+    "operate": {
+      "state": "success",
+      "try_number": 1
+    },
+    "source_counts": {
+      "state": "success",
+      "try_number": 1
+    }
+  }
+}

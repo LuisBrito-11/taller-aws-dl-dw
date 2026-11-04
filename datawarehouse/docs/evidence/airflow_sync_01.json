@@ -1,0 +1,12 @@
+{
+  "dag_id": "dw_sync_code",
+  "run_id": "sync_01",
+  "conf": {},
+  "state": "success",
+  "tasks": {
+    "sync": {
+      "state": "success",
+      "try_number": 1
+    }
+  }
+}

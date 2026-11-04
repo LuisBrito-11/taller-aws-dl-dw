@@ -1,0 +1,20 @@
+{
+  "scenario": "reprocesamiento_desde_bronze",
+  "before": {
+    "silver_news": 38,
+    "silver_entities": 96,
+    "silver_key_phrases": 272,
+    "gold_news_total": 38,
+    "quarantine_rows": 6
+  },
+  "after": {
+    "silver_news": 38,
+    "silver_entities": 96,
+    "silver_key_phrases": 272,
+    "gold_news_total": 38,
+    "quarantine_rows": 6
+  },
+  "state_identical": true,
+  "rss_requests_made": 0,
+  "comprehend_texts_analyzed": 0
+}

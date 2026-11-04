@@ -1,0 +1,78 @@
+{
+  "name": "c01_batch_log",
+  "sql": "select batch_id, status, mode, airflow_run_id, left(detail, 160) as detail, updated_at from ops.batch_log order by updated_at",
+  "columns": [
+    "batch_id",
+    "status",
+    "mode",
+    "airflow_run_id",
+    "detail",
+    "updated_at"
+  ],
+  "rows": [
+    [
+      "batch_001_initial",
+      "started",
+      "initial",
+      "dw_01_carga_inicial",
+      "{}",
+      "2026-11-04 01:49:47+00"
+    ],
+    [
+      "batch_001_initial",
+      "extracted",
+      "initial",
+      "dw_01_carga_inicial",
+      "{\"customers\": 54, \"products\": 27, \"orders\": 106, \"order_items\": 259, \"reviews\": 158, \"navigation_events\": 508, \"reused\": false}",
+      "2026-11-04 01:49:50+00"
+    ],
+    [
+      "batch_001_initial",
+      "loaded",
+      "initial",
+      "dw_01_carga_inicial",
+      "{\"\\\"raw\\\".mysql_customers\": 54, \"\\\"raw\\\".mysql_products\": 27, \"\\\"raw\\\".mysql_orders\": 106, \"\\\"raw\\\".mysql_order_items\": 259, \"\\\"raw\\\".mongo_reviews\": 158, \"\\\"ra",
+      "2026-11-04 01:50:05+00"
+    ],
+    [
+      "batch_001_initial",
+      "failed",
+      "",
+      "dw_01_carga_inicial",
+      "{\"task\": \"dbt_run_marts\", \"error\": \"dbt run fallo con codigo 1\"}",
+      "2026-11-04 01:54:22+00"
+    ],
+    [
+      "batch_001_initial",
+      "started",
+      "initial",
+      "dw_02_reejecucion_lote_inicial",
+      "{}",
+      "2026-11-04 01:56:25+00"
+    ],
+    [
+      "batch_001_initial",
+      "extracted",
+      "initial",
+      "dw_02_reejecucion_lote_inicial",
+      "{\"customers\": 54, \"products\": 27, \"orders\": 106, \"order_items\": 259, \"reviews\": 158, \"navigation_events\": 508, \"reused\": true}",
+      "2026-11-04 01:56:27+00"
+    ],
+    [
+      "batch_001_initial",
+      "loaded",
+      "initial",
+      "dw_02_reejecucion_lote_inicial",
+      "{\"\\\"raw\\\".mysql_customers\": 54, \"\\\"raw\\\".mysql_products\": 27, \"\\\"raw\\\".mysql_orders\": 106, \"\\\"raw\\\".mysql_order_items\": 259, \"\\\"raw\\\".mongo_reviews\": 158, \"\\\"ra",
+      "2026-11-04 01:56:38+00"
+    ],
+    [
+      "batch_001_initial",
+      "succeeded",
+      "initial",
+      "dw_02_reejecucion_lote_inicial",
+      "{\"marts\": {\"fct_reviews\": 150, \"dim_product\": 25, \"fct_navigation_events\": 500, \"dim_customer\": 50, \"fct_sales\": 253}, \"reconciliation\": {\"source_lines\": 259, \"",
+      "2026-11-04 01:58:25+00"
+    ]
+  ]
+}

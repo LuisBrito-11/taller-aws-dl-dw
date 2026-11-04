@@ -1,0 +1,25 @@
+digraph DW {
+  rankdir=TB; bgcolor="white"; pad=0.3; nodesep=0.35; ranksep=0.6;
+  node [shape=box, style="rounded,filled", fontname="Arial", fontsize=11, color="#4a5568", fillcolor="#f7fafc", penwidth=1.2];
+  edge [fontname="Arial", fontsize=9, color="#4a5568"];
+
+  subgraph cluster_vpc { label="VPC por defecto us-east-2 (fuentes y Redshift sin acceso público)"; fontname="Arial"; fontsize=11; style="rounded,dashed"; color="#a0aec0";
+    rds [label="Amazon RDS for MySQL 8.4\ndb.t4g.micro\ncustomers · products ·\norders · order_items", fillcolor="#ebf8ff"];
+    doc [label="Amazon DocumentDB 5.0\ndb.t4g.medium (TLS)\nreviews · navigation_events", fillcolor="#ebf8ff"];
+    subgraph cluster_ec2 { label="EC2 t3.medium · Docker Compose"; fontname="Arial"; fontsize=11; style="rounded"; color="#718096";
+      af  [label="Airflow 2.9\ndw_pipeline · dw_sources_admin", fillcolor="#fffaf0"];
+      dbt [label="dbt-core 1.9\n+ dbt-redshift", fillcolor="#fffaf0"];
+    }
+    rs [label="Amazon Redshift Serverless (4 RPU)\nraw · intermediate · quarantine ·\nmarts (SCD2) · ops", fillcolor="#faf5ff"];
+  }
+  s3 [label="S3 privado de-gr02-user-4-dw\nraw/<fuente>/<entidad>/batch_id=<id>/\nraw/_manifests/ (commit del lote)", fillcolor="#f0fff4"];
+  iam [label="Rol IAM\nde-gr02-user-4-dw-redshift-s3-role\n(solo lectura del bucket)", shape=note, fillcolor="#fff5f5"];
+
+  rds -> af [label="1 extracción\n(completa / marca de agua)"];
+  doc -> af;
+  af -> s3 [label="2 CSV gzip\n+ manifiesto"];
+  s3 -> rs [label="3 COPY"];
+  iam -> rs [style=dashed, arrowhead=none];
+  af -> dbt [label="4"];
+  dbt -> rs [label="SQL en Redshift:\nseeds, modelos, snapshots,\nmarts, tests"];
+}

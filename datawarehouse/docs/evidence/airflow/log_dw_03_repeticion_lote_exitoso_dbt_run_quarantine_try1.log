@@ -1,0 +1,49 @@
+﻿2d2455762051
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=dw_pipeline/run_id=dw_03_repeticion_lote_exitoso/task_id=dbt_run_quarantine/attempt=1.log
+[2026-11-04T01:59:56.693+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T01:59:56.740+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dw_pipeline.dbt_run_quarantine dw_03_repeticion_lote_exitoso [queued]>
+[2026-11-04T01:59:56.759+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dw_pipeline.dbt_run_quarantine dw_03_repeticion_lote_exitoso [queued]>
+[2026-11-04T01:59:56.759+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T01:59:56.782+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): dbt_run_quarantine> on 2026-11-04 01:59:12.690431+00:00
+[2026-11-04T01:59:56.795+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=813) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T01:59:56.797+0000] {standard_task_runner.py:64} INFO - Started process 814 to run task
+[2026-11-04T01:59:56.797+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dw_pipeline', 'dbt_run_quarantine', 'dw_03_repeticion_lote_exitoso', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/dw_pipeline.py', '--cfg-path', '/tmp/tmpqzk99gk7']
+[2026-11-04T01:59:56.800+0000] {standard_task_runner.py:91} INFO - Job 37: Subtask dbt_run_quarantine
+[2026-11-04T01:59:56.895+0000] {task_command.py:426} INFO - Running <TaskInstance: dw_pipeline.dbt_run_quarantine dw_03_repeticion_lote_exitoso [running]> on host 2d2455762051
+[2026-11-04T01:59:57.062+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='dw_pipeline' AIRFLOW_CTX_TASK_ID='dbt_run_quarantine' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T01:59:12.690431+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dw_03_repeticion_lote_exitoso'
+[2026-11-04T01:59:57.064+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T01:59:57.064+0000] {dw_pipeline.py:118} INFO - batch_id=batch_001_initial dbt_run_quarantine
+[2026-11-04T01:59:57.065+0000] {dbt_runner.py:19} INFO - dbt: /home/***/dbt-venv/bin/dbt run --project-dir /opt/***/src/dbt --profiles-dir /opt/***/src/dbt --select path:models/quarantine
+[2026-11-04T02:00:10.831+0000] {dbt_runner.py:23} INFO - [0m01:59:59  Running with dbt=1.9.11
+[2026-11-04T02:00:10.832+0000] {dbt_runner.py:23} INFO - [0m01:59:59  This version of dbt is deprecated and no longer receives regular patches, including for known bugs. We recommend upgrading to a newer supported version of dbt: https://docs.getdbt.com/docs/dbt-versions
+[2026-11-04T02:00:10.832+0000] {dbt_runner.py:23} INFO - [0m02:00:00  Registered adapter: redshift=1.9.5
+[2026-11-04T02:00:10.832+0000] {dbt_runner.py:23} INFO - [0m02:00:03  Found 33 models, 2 seeds, 92 data tests, 2 snapshots, 6 sources, 671 macros
+[2026-11-04T02:00:10.832+0000] {dbt_runner.py:23} INFO - [0m02:00:03  
+[2026-11-04T02:00:10.832+0000] {dbt_runner.py:23} INFO - [0m02:00:03  Concurrency: 4 threads (target='redshift')
+[2026-11-04T02:00:10.832+0000] {dbt_runner.py:23} INFO - [0m02:00:03  
+[2026-11-04T02:00:10.832+0000] {dbt_runner.py:23} INFO - [0m02:00:04  1 of 6 START sql table model quarantine.quarantine_mongodb__navigation_events .. [RUN]
+[2026-11-04T02:00:10.833+0000] {dbt_runner.py:23} INFO - [0m02:00:04  2 of 6 START sql table model quarantine.quarantine_mongodb__reviews ............ [RUN]
+[2026-11-04T02:00:10.833+0000] {dbt_runner.py:23} INFO - [0m02:00:04  3 of 6 START sql table model quarantine.quarantine_mysql__customers ............ [RUN]
+[2026-11-04T02:00:10.833+0000] {dbt_runner.py:23} INFO - [0m02:00:04  4 of 6 START sql table model quarantine.quarantine_mysql__order_items .......... [RUN]
+[2026-11-04T02:00:10.833+0000] {dbt_runner.py:23} INFO - [0m02:00:07  3 of 6 OK created sql table model quarantine.quarantine_mysql__customers ....... [[32mSUCCESS[0m in 2.39s]
+[2026-11-04T02:00:10.833+0000] {dbt_runner.py:23} INFO - [0m02:00:07  2 of 6 OK created sql table model quarantine.quarantine_mongodb__reviews ....... [[32mSUCCESS[0m in 2.40s]
+[2026-11-04T02:00:10.833+0000] {dbt_runner.py:23} INFO - [0m02:00:07  5 of 6 START sql table model quarantine.quarantine_mysql__orders ............... [RUN]
+[2026-11-04T02:00:10.834+0000] {dbt_runner.py:23} INFO - [0m02:00:07  6 of 6 START sql table model quarantine.quarantine_mysql__products ............. [RUN]
+[2026-11-04T02:00:10.834+0000] {dbt_runner.py:23} INFO - [0m02:00:08  1 of 6 OK created sql table model quarantine.quarantine_mongodb__navigation_events  [[32mSUCCESS[0m in 4.07s]
+[2026-11-04T02:00:10.834+0000] {dbt_runner.py:23} INFO - [0m02:00:08  4 of 6 OK created sql table model quarantine.quarantine_mysql__order_items ..... [[32mSUCCESS[0m in 4.08s]
+[2026-11-04T02:00:10.834+0000] {dbt_runner.py:23} INFO - [0m02:00:10  6 of 6 OK created sql table model quarantine.quarantine_mysql__products ........ [[32mSUCCESS[0m in 2.91s]
+[2026-11-04T02:00:10.834+0000] {dbt_runner.py:23} INFO - [0m02:00:10  5 of 6 OK created sql table model quarantine.quarantine_mysql__orders .......... [[32mSUCCESS[0m in 2.92s]
+[2026-11-04T02:00:10.834+0000] {dbt_runner.py:23} INFO - [0m02:00:10  
+[2026-11-04T02:00:10.834+0000] {dbt_runner.py:23} INFO - [0m02:00:10  Finished running 6 table models in 0 hours 0 minutes and 6.97 seconds (6.97s).
+[2026-11-04T02:00:10.834+0000] {dbt_runner.py:23} INFO - [0m02:00:10  
+[2026-11-04T02:00:10.835+0000] {dbt_runner.py:23} INFO - [0m02:00:10  [32mCompleted successfully[0m
+[2026-11-04T02:00:10.835+0000] {dbt_runner.py:23} INFO - [0m02:00:10  
+[2026-11-04T02:00:10.835+0000] {dbt_runner.py:23} INFO - [0m02:00:10  Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6
+[2026-11-04T02:00:10.835+0000] {python.py:237} INFO - Done. Returned value was: {'batch_id': 'batch_001_initial', 'mode': 'initial', 'reused': True, 'rows': {'customers': 54, 'products': 27, 'orders': 106, 'order_items': 259, 'reviews': 158, 'navigation_events': 508}, 'loaded': {'"raw".mysql_customers': 54, '"raw".mysql_products': 27, '"raw".mysql_orders': 106, '"raw".mysql_order_items': 259, '"raw".mongo_reviews': 158, '"raw".mongo_navigation_events': 508}}
+[2026-11-04T02:00:10.836+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T02:00:10.893+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dw_pipeline, task_id=dbt_run_quarantine, run_id=dw_03_repeticion_lote_exitoso, execution_date=20261104T015912, start_date=20261104T015956, end_date=20261104T020010
+[2026-11-04T02:00:10.952+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T02:00:10.996+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T02:00:10.998+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

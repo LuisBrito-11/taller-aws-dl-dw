@@ -1,0 +1,33 @@
+{
+  "name": "e06_scd2_en_hechos",
+  "sql": "select d.customer_id, d.city, d.valid_from, d.valid_to, count(f.sale_sk) as ventas, min(dd.date) as primera_venta, max(dd.date) as ultima_venta from marts.fct_sales f join marts.dim_customer d on d.customer_sk = f.customer_sk join marts.dim_date dd on dd.date_sk = f.date_sk where d.customer_id = 1 group by 1,2,3,4 order by 3",
+  "columns": [
+    "customer_id",
+    "city",
+    "valid_from",
+    "valid_to",
+    "ventas",
+    "primera_venta",
+    "ultima_venta"
+  ],
+  "rows": [
+    [
+      1,
+      "Bogotá",
+      "2024-11-10 00:00:00",
+      "2025-07-01 00:00:00",
+      1,
+      "2025-06-16",
+      "2025-06-16"
+    ],
+    [
+      1,
+      "Medellín",
+      "2025-07-01 00:00:00",
+      null,
+      4,
+      "2025-08-08",
+      "2026-01-02"
+    ]
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "scenario": "nueva_particion",
+  "partition": "2026-10-21",
+  "s3_files": [
+    "silver/news/pub_date=2026-10-21/data.parquet"
+  ],
+  "athena_rows_before_msck": 0,
+  "athena_rows_after_msck": 1
+}

@@ -1,0 +1,21 @@
+{
+  "scenario": "ejecucion_parcial_y_recuperacion",
+  "first_attempt": {
+    "run_id": "partial_01",
+    "ingest_status": "partial",
+    "sources": {
+      "eltiempo_colombia": "ok",
+      "eltiempo_economia": "http_error",
+      "eltiempo_tecnosfera": "ok"
+    }
+  },
+  "after_retry": {
+    "run_id": "partial_01",
+    "ingest_status": "complete",
+    "sources": {
+      "eltiempo_colombia": "ok",
+      "eltiempo_economia": "ok",
+      "eltiempo_tecnosfera": "ok"
+    }
+  }
+}

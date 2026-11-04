@@ -1,0 +1,25 @@
+﻿2d2455762051
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=dw_pipeline/run_id=dw_05_cambio_scd2/task_id=validate_connections/attempt=1.log
+[2026-11-04T02:03:48.392+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T02:03:48.435+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dw_pipeline.validate_connections dw_05_cambio_scd2 [queued]>
+[2026-11-04T02:03:48.445+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dw_pipeline.validate_connections dw_05_cambio_scd2 [queued]>
+[2026-11-04T02:03:48.445+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T02:03:48.459+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): validate_connections> on 2026-11-04 02:03:47.079446+00:00
+[2026-11-04T02:03:48.469+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=1124) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T02:03:48.469+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dw_pipeline', 'validate_connections', 'dw_05_cambio_scd2', '--job-id', '60', '--raw', '--subdir', 'DAGS_FOLDER/dw_pipeline.py', '--cfg-path', '/tmp/tmp8al6und4']
+[2026-11-04T02:03:48.470+0000] {standard_task_runner.py:64} INFO - Started process 1125 to run task
+[2026-11-04T02:03:48.472+0000] {standard_task_runner.py:91} INFO - Job 60: Subtask validate_connections
+[2026-11-04T02:03:48.562+0000] {task_command.py:426} INFO - Running <TaskInstance: dw_pipeline.validate_connections dw_05_cambio_scd2 [running]> on host 2d2455762051
+[2026-11-04T02:03:48.703+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='dw_pipeline' AIRFLOW_CTX_TASK_ID='validate_connections' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T02:03:47.079446+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dw_05_cambio_scd2'
+[2026-11-04T02:03:48.704+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T02:03:48.712+0000] {logger.py:121} INFO - You appear to be connected to a DocumentDB cluster. For more information regarding feature compatibility and support please visit https://www.mongodb.com/supportability/documentdb
+[2026-11-04T02:03:48.824+0000] {credentials.py:1075} INFO - Found credentials from IAM Role: de-gr02-user-4-dw-ec2-role
+[2026-11-04T02:03:49.320+0000] {dw_pipeline.py:83} INFO - batch_id=batch_003_scd2 conexiones OK (RDS, DocumentDB, S3, Redshift)
+[2026-11-04T02:03:49.322+0000] {python.py:237} INFO - Done. Returned value was: {'batch_id': 'batch_003_scd2'}
+[2026-11-04T02:03:49.323+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T02:03:49.367+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dw_pipeline, task_id=validate_connections, run_id=dw_05_cambio_scd2, execution_date=20261104T020347, start_date=20261104T020348, end_date=20261104T020349
+[2026-11-04T02:03:49.407+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T02:03:49.452+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T02:03:49.454+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

@@ -1,0 +1,176 @@
+{
+  "name": "e01_historial_lotes",
+  "sql": "select airflow_run_id, batch_id, status, json_extract_path_text(detail,'marts') as marts, json_extract_path_text(detail,'reconciliation') as conciliacion, json_extract_path_text(detail,'reused') as reused, json_extract_path_text(detail,'task') as tarea_fallida, updated_at from ops.batch_log where status in ('extracted','succeeded','failed') order by updated_at",
+  "columns": [
+    "airflow_run_id",
+    "batch_id",
+    "status",
+    "marts",
+    "conciliacion",
+    "reused",
+    "tarea_fallida",
+    "updated_at"
+  ],
+  "rows": [
+    [
+      "dw_01_carga_inicial",
+      "batch_001_initial",
+      "extracted",
+      null,
+      null,
+      "false",
+      null,
+      "2026-11-04 01:49:50+00"
+    ],
+    [
+      "dw_01_carga_inicial",
+      "batch_001_initial",
+      "failed",
+      null,
+      null,
+      null,
+      "dbt_run_marts",
+      "2026-11-04 01:54:22+00"
+    ],
+    [
+      "dw_02_reejecucion_lote_inicial",
+      "batch_001_initial",
+      "extracted",
+      null,
+      null,
+      "true",
+      null,
+      "2026-11-04 01:56:27+00"
+    ],
+    [
+      "dw_02_reejecucion_lote_inicial",
+      "batch_001_initial",
+      "succeeded",
+      "{\"fct_reviews\":150,\"dim_product\":25,\"fct_navigation_events\":500,\"dim_customer\":50,\"fct_sales\":253}",
+      "{\"source_lines\":259,\"fct_lines\":253,\"quarantine_lines\":6,\"source_total\":7293860.26,\"fct_plus_quarantine_total\":7293860.26}",
+      null,
+      null,
+      "2026-11-04 01:58:25+00"
+    ],
+    [
+      "dw_03_repeticion_lote_exitoso",
+      "batch_001_initial",
+      "extracted",
+      null,
+      null,
+      "true",
+      null,
+      "2026-11-04 01:59:17+00"
+    ],
+    [
+      "dw_03_repeticion_lote_exitoso",
+      "batch_001_initial",
+      "succeeded",
+      "{\"fct_sales\":253,\"dim_customer\":50,\"fct_reviews\":150,\"fct_navigation_events\":500,\"dim_product\":25}",
+      "{\"source_lines\":259,\"fct_lines\":253,\"quarantine_lines\":6,\"source_total\":7293860.26,\"fct_plus_quarantine_total\":7293860.26}",
+      null,
+      null,
+      "2026-11-04 02:01:04+00"
+    ],
+    [
+      "dw_04_lote_incremental",
+      "batch_002_incr",
+      "extracted",
+      null,
+      null,
+      "false",
+      null,
+      "2026-11-04 02:01:30+00"
+    ],
+    [
+      "dw_04_lote_incremental",
+      "batch_002_incr",
+      "succeeded",
+      "{\"fct_reviews\":153,\"dim_product\":25,\"dim_customer\":50,\"fct_sales\":256,\"fct_navigation_events\":503}",
+      "{\"source_lines\":262,\"fct_lines\":256,\"quarantine_lines\":6,\"source_total\":7357330.42,\"fct_plus_quarantine_total\":7357330.42}",
+      null,
+      null,
+      "2026-11-04 02:03:21+00"
+    ],
+    [
+      "dw_05_cambio_scd2",
+      "batch_003_scd2",
+      "extracted",
+      null,
+      null,
+      "false",
+      null,
+      "2026-11-04 02:03:52+00"
+    ],
+    [
+      "dw_05_cambio_scd2",
+      "batch_003_scd2",
+      "succeeded",
+      "{\"dim_customer\":51,\"fct_sales\":256,\"fct_reviews\":153,\"fct_navigation_events\":503,\"dim_product\":26}",
+      "{\"source_lines\":262,\"fct_lines\":256,\"quarantine_lines\":6,\"source_total\":7357330.42,\"fct_plus_quarantine_total\":7357330.42}",
+      null,
+      null,
+      "2026-11-04 02:05:41+00"
+    ],
+    [
+      "dw_06a_fallo_controlado",
+      "batch_004_fail",
+      "extracted",
+      null,
+      null,
+      "false",
+      null,
+      "2026-11-04 02:06:10+00"
+    ],
+    [
+      "dw_06a_fallo_controlado",
+      "batch_004_fail",
+      "failed",
+      null,
+      null,
+      null,
+      "load_redshift",
+      "2026-11-04 02:08:16+00"
+    ],
+    [
+      "dw_06b_reejecucion_tras_fallo",
+      "batch_004_fail",
+      "extracted",
+      null,
+      null,
+      "true",
+      null,
+      "2026-11-04 02:08:44+00"
+    ],
+    [
+      "dw_06b_reejecucion_tras_fallo",
+      "batch_004_fail",
+      "succeeded",
+      "{\"fct_navigation_events\":506,\"dim_product\":26,\"fct_reviews\":156,\"dim_customer\":51,\"fct_sales\":259}",
+      "{\"source_lines\":265,\"fct_lines\":259,\"quarantine_lines\":6,\"source_total\":7420800.58,\"fct_plus_quarantine_total\":7420800.58}",
+      null,
+      null,
+      "2026-11-04 02:10:37+00"
+    ],
+    [
+      "dw_06c_fallo_transitorio_retry",
+      "batch_004_fail",
+      "extracted",
+      null,
+      null,
+      "true",
+      null,
+      "2026-11-04 02:10:56+00"
+    ],
+    [
+      "dw_06c_fallo_transitorio_retry",
+      "batch_004_fail",
+      "succeeded",
+      "{\"dim_customer\":51,\"fct_navigation_events\":506,\"fct_reviews\":156,\"dim_product\":26,\"fct_sales\":259}",
+      "{\"source_lines\":265,\"fct_lines\":259,\"quarantine_lines\":6,\"source_total\":7420800.58,\"fct_plus_quarantine_total\":7420800.58}",
+      null,
+      null,
+      "2026-11-04 02:13:39+00"
+    ]
+  ]
+}

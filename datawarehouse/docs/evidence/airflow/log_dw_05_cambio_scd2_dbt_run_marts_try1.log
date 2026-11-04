@@ -1,0 +1,55 @@
+﻿2d2455762051
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=dw_pipeline/run_id=dw_05_cambio_scd2/task_id=dbt_run_marts/attempt=1.log
+[2026-11-04T02:05:00.630+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T02:05:00.700+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dw_pipeline.dbt_run_marts dw_05_cambio_scd2 [queued]>
+[2026-11-04T02:05:00.716+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dw_pipeline.dbt_run_marts dw_05_cambio_scd2 [queued]>
+[2026-11-04T02:05:00.716+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T02:05:00.741+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): dbt_run_marts> on 2026-11-04 02:03:47.079446+00:00
+[2026-11-04T02:05:00.755+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=1254) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T02:05:00.756+0000] {standard_task_runner.py:64} INFO - Started process 1255 to run task
+[2026-11-04T02:05:00.759+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dw_pipeline', 'dbt_run_marts', 'dw_05_cambio_scd2', '--job-id', '69', '--raw', '--subdir', 'DAGS_FOLDER/dw_pipeline.py', '--cfg-path', '/tmp/tmp0vutsjc4']
+[2026-11-04T02:05:00.761+0000] {standard_task_runner.py:91} INFO - Job 69: Subtask dbt_run_marts
+[2026-11-04T02:05:00.883+0000] {task_command.py:426} INFO - Running <TaskInstance: dw_pipeline.dbt_run_marts dw_05_cambio_scd2 [running]> on host 2d2455762051
+[2026-11-04T02:05:01.077+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='dw_pipeline' AIRFLOW_CTX_TASK_ID='dbt_run_marts' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T02:03:47.079446+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dw_05_cambio_scd2'
+[2026-11-04T02:05:01.078+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T02:05:01.079+0000] {dw_pipeline.py:118} INFO - batch_id=batch_003_scd2 dbt_run_marts
+[2026-11-04T02:05:01.080+0000] {dbt_runner.py:19} INFO - dbt: /home/***/dbt-venv/bin/dbt run --project-dir /opt/***/src/dbt --profiles-dir /opt/***/src/dbt --select path:models/marts
+[2026-11-04T02:05:23.257+0000] {dbt_runner.py:23} INFO - [0m02:05:05  Running with dbt=1.9.11
+[2026-11-04T02:05:23.257+0000] {dbt_runner.py:23} INFO - [0m02:05:05  This version of dbt is deprecated and no longer receives regular patches, including for known bugs. We recommend upgrading to a newer supported version of dbt: https://docs.getdbt.com/docs/dbt-versions
+[2026-11-04T02:05:23.258+0000] {dbt_runner.py:23} INFO - [0m02:05:05  Registered adapter: redshift=1.9.5
+[2026-11-04T02:05:23.258+0000] {dbt_runner.py:23} INFO - [0m02:05:06  Found 33 models, 2 seeds, 92 data tests, 2 snapshots, 6 sources, 671 macros
+[2026-11-04T02:05:23.258+0000] {dbt_runner.py:23} INFO - [0m02:05:06  
+[2026-11-04T02:05:23.258+0000] {dbt_runner.py:23} INFO - [0m02:05:06  Concurrency: 4 threads (target='redshift')
+[2026-11-04T02:05:23.258+0000] {dbt_runner.py:23} INFO - [0m02:05:06  
+[2026-11-04T02:05:23.258+0000] {dbt_runner.py:23} INFO - [0m02:05:07  1 of 9 START sql table model marts.dim_customer ................................ [RUN]
+[2026-11-04T02:05:23.258+0000] {dbt_runner.py:23} INFO - [0m02:05:07  2 of 9 START sql table model marts.dim_date .................................... [RUN]
+[2026-11-04T02:05:23.259+0000] {dbt_runner.py:23} INFO - [0m02:05:07  3 of 9 START sql table model marts.dim_event_type .............................. [RUN]
+[2026-11-04T02:05:23.259+0000] {dbt_runner.py:23} INFO - [0m02:05:07  4 of 9 START sql table model marts.dim_geography ............................... [RUN]
+[2026-11-04T02:05:23.259+0000] {dbt_runner.py:23} INFO - [0m02:05:09  4 of 9 OK created sql table model marts.dim_geography .......................... [[32mSUCCESS[0m in 1.45s]
+[2026-11-04T02:05:23.259+0000] {dbt_runner.py:23} INFO - [0m02:05:09  5 of 9 START sql table model marts.dim_product ................................. [RUN]
+[2026-11-04T02:05:23.259+0000] {dbt_runner.py:23} INFO - [0m02:05:13  3 of 9 OK created sql table model marts.dim_event_type ......................... [[32mSUCCESS[0m in 5.59s]
+[2026-11-04T02:05:23.259+0000] {dbt_runner.py:23} INFO - [0m02:05:13  2 of 9 OK created sql table model marts.dim_date ............................... [[32mSUCCESS[0m in 5.59s]
+[2026-11-04T02:05:23.259+0000] {dbt_runner.py:23} INFO - [0m02:05:13  1 of 9 OK created sql table model marts.dim_customer ........................... [[32mSUCCESS[0m in 5.60s]
+[2026-11-04T02:05:23.259+0000] {dbt_runner.py:23} INFO - [0m02:05:13  6 of 9 START sql table model marts.dim_sales_channel ........................... [RUN]
+[2026-11-04T02:05:23.260+0000] {dbt_runner.py:23} INFO - [0m02:05:14  5 of 9 OK created sql table model marts.dim_product ............................ [[32mSUCCESS[0m in 5.64s]
+[2026-11-04T02:05:23.260+0000] {dbt_runner.py:23} INFO - [0m02:05:14  7 of 9 START sql incremental model marts.fct_reviews ........................... [RUN]
+[2026-11-04T02:05:23.260+0000] {dbt_runner.py:23} INFO - [0m02:05:15  6 of 9 OK created sql table model marts.dim_sales_channel ...................... [[32mSUCCESS[0m in 2.39s]
+[2026-11-04T02:05:23.260+0000] {dbt_runner.py:23} INFO - [0m02:05:15  8 of 9 START sql incremental model marts.fct_navigation_events ................. [RUN]
+[2026-11-04T02:05:23.260+0000] {dbt_runner.py:23} INFO - [0m02:05:15  9 of 9 START sql incremental model marts.fct_sales ............................. [RUN]
+[2026-11-04T02:05:23.260+0000] {dbt_runner.py:23} INFO - [0m02:05:20  7 of 9 OK created sql incremental model marts.fct_reviews ...................... [[32mSUCCESS[0m in 5.43s]
+[2026-11-04T02:05:23.260+0000] {dbt_runner.py:23} INFO - [0m02:05:21  8 of 9 OK created sql incremental model marts.fct_navigation_events ............ [[32mSUCCESS[0m in 5.81s]
+[2026-11-04T02:05:23.260+0000] {dbt_runner.py:23} INFO - [0m02:05:22  9 of 9 OK created sql incremental model marts.fct_sales ........................ [[32mSUCCESS[0m in 6.84s]
+[2026-11-04T02:05:23.261+0000] {dbt_runner.py:23} INFO - [0m02:05:22  
+[2026-11-04T02:05:23.261+0000] {dbt_runner.py:23} INFO - [0m02:05:22  Finished running 3 incremental models, 6 table models in 0 hours 0 minutes and 15.58 seconds (15.58s).
+[2026-11-04T02:05:23.261+0000] {dbt_runner.py:23} INFO - [0m02:05:22  
+[2026-11-04T02:05:23.261+0000] {dbt_runner.py:23} INFO - [0m02:05:22  [32mCompleted successfully[0m
+[2026-11-04T02:05:23.261+0000] {dbt_runner.py:23} INFO - [0m02:05:22  
+[2026-11-04T02:05:23.261+0000] {dbt_runner.py:23} INFO - [0m02:05:22  Done. PASS=9 WARN=0 ERROR=0 SKIP=0 TOTAL=9
+[2026-11-04T02:05:23.261+0000] {python.py:237} INFO - Done. Returned value was: {'batch_id': 'batch_003_scd2', 'mode': 'incremental', 'reused': False, 'rows': {'customers': 54, 'products': 27, 'orders': 0, 'order_items': 0, 'reviews': 0, 'navigation_events': 0}, 'loaded': {'"raw".mysql_customers': 54, '"raw".mysql_products': 27, '"raw".mysql_orders': 0, '"raw".mysql_order_items': 0, '"raw".mongo_reviews': 0, '"raw".mongo_navigation_events': 0}}
+[2026-11-04T02:05:23.262+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T02:05:23.317+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dw_pipeline, task_id=dbt_run_marts, run_id=dw_05_cambio_scd2, execution_date=20261104T020347, start_date=20261104T020500, end_date=20261104T020523
+[2026-11-04T02:05:23.359+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T02:05:23.397+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T02:05:23.399+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

@@ -1,0 +1,526 @@
+{
+  "Q1": {
+    "sql": "SELECT pub_date, medium, section, news_count\nFROM gold_news_daily\nORDER BY pub_date DESC, section",
+    "columns": [
+      "pub_date",
+      "medium",
+      "section",
+      "news_count"
+    ],
+    "rows": [
+      [
+        "2026-11-04",
+        "El Tiempo",
+        "Tecnosfera",
+        "2"
+      ],
+      [
+        "2026-11-03",
+        "El Tiempo",
+        "Colombia",
+        "11"
+      ],
+      [
+        "2026-11-03",
+        "El Tiempo",
+        "Economia",
+        "14"
+      ],
+      [
+        "2026-11-03",
+        "El Tiempo",
+        "Tecnosfera",
+        "2"
+      ],
+      [
+        "2026-11-02",
+        "El Tiempo",
+        "Tecnosfera",
+        "2"
+      ],
+      [
+        "2026-11-01",
+        "El Tiempo",
+        "Tecnosfera",
+        "2"
+      ],
+      [
+        "2026-10-28",
+        "El Tiempo",
+        "Tecnosfera",
+        "1"
+      ],
+      [
+        "2026-10-27",
+        "El Tiempo",
+        "Tecnosfera",
+        "1"
+      ],
+      [
+        "2026-10-26",
+        "El Tiempo",
+        "Tecnosfera",
+        "2"
+      ],
+      [
+        "2026-10-21",
+        "El Tiempo",
+        "Colombia",
+        "1"
+      ]
+    ],
+    "data_scanned_bytes": 2198,
+    "engine_ms": 857,
+    "query_id": "8af7398c-94ce-4f21-950e-28961b99d75d"
+  },
+  "Q2a": {
+    "sql": "SELECT entity_text AS organizacion, sum(news_count) AS noticias\nFROM gold_entity_daily\nWHERE entity_type = 'ORGANIZATION'\nGROUP BY entity_key, entity_text\nORDER BY noticias DESC, organizacion\nLIMIT 10",
+    "columns": [
+      "organizacion",
+      "noticias"
+    ],
+    "rows": [
+      [
+        "Banco de la Republica",
+        "7"
+      ],
+      [
+        "Bogota",
+        "7"
+      ],
+      [
+        "dolar",
+        "3"
+      ],
+      [
+        "Apple",
+        "2"
+      ],
+      [
+        "Gobierno",
+        "2"
+      ],
+      [
+        "Google",
+        "2"
+      ],
+      [
+        "Microsoft",
+        "2"
+      ],
+      [
+        "WhatsApp",
+        "2"
+      ],
+      [
+        "Acciones & Valores",
+        "1"
+      ],
+      [
+        "Airbus",
+        "1"
+      ]
+    ],
+    "data_scanned_bytes": 4087,
+    "engine_ms": 1203,
+    "query_id": "d7c049b1-dff6-4973-9fcb-f5fc0ea0445b"
+  },
+  "Q2b": {
+    "sql": "SELECT entity_text AS persona, sum(news_count) AS noticias\nFROM gold_entity_daily\nWHERE entity_type = 'PERSON'\nGROUP BY entity_key, entity_text\nORDER BY noticias DESC, persona\nLIMIT 10",
+    "columns": [
+      "persona",
+      "noticias"
+    ],
+    "rows": [
+      [
+        "Aconauto",
+        "1"
+      ],
+      [
+        "Adriana Matiz",
+        "1"
+      ],
+      [
+        "Bruce Mac Master",
+        "1"
+      ],
+      [
+        "Carlos de Hart",
+        "1"
+      ],
+      [
+        "Egan Bernal",
+        "1"
+      ],
+      [
+        "Gobernadora del Tolima",
+        "1"
+      ],
+      [
+        "IA",
+        "1"
+      ],
+      [
+        "Juan Camilo Nariño",
+        "1"
+      ],
+      [
+        "Luis Pérez",
+        "1"
+      ],
+      [
+        "Luz Stella Murgas",
+        "1"
+      ]
+    ],
+    "data_scanned_bytes": 627,
+    "engine_ms": 758,
+    "query_id": "2e713b9f-9867-4afe-9f3e-dbde1a4d29c5"
+  },
+  "Q2c": {
+    "sql": "SELECT entity_text AS lugar, sum(news_count) AS noticias\nFROM gold_entity_daily\nWHERE entity_type = 'LOCATION'\nGROUP BY entity_key, entity_text\nORDER BY noticias DESC, lugar\nLIMIT 10",
+    "columns": [
+      "lugar",
+      "noticias"
+    ],
+    "rows": [
+      [
+        "Colombia",
+        "5"
+      ],
+      [
+        "Cali",
+        "3"
+      ],
+      [
+        "Medellín",
+        "2"
+      ],
+      [
+        "Barrancabermeja",
+        "1"
+      ],
+      [
+        "Barranquilla",
+        "1"
+      ],
+      [
+        "Bogotá",
+        "1"
+      ],
+      [
+        "Cartagena",
+        "1"
+      ],
+      [
+        "Catatumbo",
+        "1"
+      ],
+      [
+        "Cesar",
+        "1"
+      ],
+      [
+        "Chimichagua, Cesar",
+        "1"
+      ]
+    ],
+    "data_scanned_bytes": 3559,
+    "engine_ms": 868,
+    "query_id": "f973483d-54fa-42b5-a5a2-c474e9ed4a42"
+  },
+  "Q3": {
+    "sql": "SELECT section, key_phrase, noticias FROM (\n  SELECT section, min(key_phrase) AS key_phrase, sum(news_count) AS noticias,\n         row_number() OVER (PARTITION BY section ORDER BY sum(news_count) DESC, key_phrase_norm) AS rn\n  FROM gold_key_phrase_section_daily\n  GROUP BY section, key_phrase_norm\n) WHERE rn <= 5\nORDER BY section, noticias DESC",
+    "columns": [
+      "section",
+      "key_phrase",
+      "noticias"
+    ],
+    "rows": [
+      [
+        "Colombia",
+        "Cali",
+        "3"
+      ],
+      [
+        "Colombia",
+        "Medellín",
+        "2"
+      ],
+      [
+        "Colombia",
+        "'El gobierno pasado",
+        "1"
+      ],
+      [
+        "Colombia",
+        "'Matamba'",
+        "1"
+      ],
+      [
+        "Colombia",
+        "'Supermetro'",
+        "1"
+      ],
+      [
+        "Economia",
+        "Banco de la Republica",
+        "3"
+      ],
+      [
+        "Economia",
+        "dolar",
+        "3"
+      ],
+      [
+        "Economia",
+        "Economia",
+        "3"
+      ],
+      [
+        "Economia",
+        "jornada",
+        "3"
+      ],
+      [
+        "Economia",
+        "mercado",
+        "2"
+      ],
+      [
+        "Tecnosfera",
+        "Apple",
+        "2"
+      ],
+      [
+        "Tecnosfera",
+        "Google",
+        "2"
+      ],
+      [
+        "Tecnosfera",
+        "herramienta",
+        "2"
+      ],
+      [
+        "Tecnosfera",
+        "Microsoft",
+        "2"
+      ],
+      [
+        "Tecnosfera",
+        "Tecnologia",
+        "2"
+      ]
+    ],
+    "data_scanned_bytes": 9369,
+    "engine_ms": 1012,
+    "query_id": "d27fcea5-3b42-45e2-a587-3da654926b8b"
+  },
+  "Q4": {
+    "sql": "SELECT pub_date, entity_type, entity_text, news_count\nFROM gold_entity_daily\nWHERE entity_key = 'bogotá'\nORDER BY pub_date",
+    "columns": [
+      "pub_date",
+      "entity_type",
+      "entity_text",
+      "news_count"
+    ],
+    "rows": [
+      [
+        "2026-11-03",
+        "LOCATION",
+        "Bogotá",
+        "1"
+      ]
+    ],
+    "data_scanned_bytes": 3136,
+    "engine_ms": 642,
+    "query_id": "c4507a88-3aff-488d-9bcc-a15a12e18f28"
+  },
+  "Q5a": {
+    "sql": "SELECT s.pub_date, s.n_silver, g.n_gold, s.n_silver - g.n_gold AS diferencia\nFROM (SELECT pub_date, count(*) AS n_silver FROM silver_news GROUP BY pub_date) s\nFULL OUTER JOIN (SELECT pub_date, sum(news_count) AS n_gold FROM gold_news_daily GROUP BY pub_date) g\n  ON s.pub_date = g.pub_date\nORDER BY 1",
+    "columns": [
+      "pub_date",
+      "n_silver",
+      "n_gold",
+      "diferencia"
+    ],
+    "rows": [
+      [
+        "2026-10-21",
+        "1",
+        "1",
+        "0"
+      ],
+      [
+        "2026-10-26",
+        "2",
+        "2",
+        "0"
+      ],
+      [
+        "2026-10-27",
+        "1",
+        "1",
+        "0"
+      ],
+      [
+        "2026-10-28",
+        "1",
+        "1",
+        "0"
+      ],
+      [
+        "2026-11-01",
+        "2",
+        "2",
+        "0"
+      ],
+      [
+        "2026-11-02",
+        "2",
+        "2",
+        "0"
+      ],
+      [
+        "2026-11-03",
+        "27",
+        "27",
+        "0"
+      ],
+      [
+        "2026-11-04",
+        "2",
+        "2",
+        "0"
+      ]
+    ],
+    "data_scanned_bytes": 798,
+    "engine_ms": 1121,
+    "query_id": "2c48ae4e-1b05-4ee9-96e9-24ef7dfbb769"
+  },
+  "Q5b": {
+    "sql": "SELECT (SELECT count(*) FROM (SELECT DISTINCT news_id, entity_type, entity_key FROM silver_news_entities)) AS silver,\n       (SELECT sum(news_count) FROM gold_entity_daily) AS gold",
+    "columns": [
+      "silver",
+      "gold"
+    ],
+    "rows": [
+      [
+        "96",
+        "96"
+      ]
+    ],
+    "data_scanned_bytes": 5464,
+    "engine_ms": 1581,
+    "query_id": "c0cc4c7c-9b89-4e9e-828d-4b9339bcd7e5"
+  },
+  "Q6": {
+    "sql": "SELECT source_id, reject_reason, bronze_run_id, bronze_key\nFROM silver_quarantine\nORDER BY ingestion_date, source_id",
+    "columns": [
+      "source_id",
+      "reject_reason",
+      "bronze_run_id",
+      "bronze_key"
+    ],
+    "rows": [
+      [
+        "eltiempo_colombia",
+        "invalid_link",
+        "defect_01",
+        "bronze/source=eltiempo_colombia/ingestion_date=2026-11-04/run_id=defect_01/feed.xml"
+      ],
+      [
+        "eltiempo_colombia",
+        "future_pub_date",
+        "part_01",
+        "bronze/source=eltiempo_colombia/ingestion_date=2026-11-04/run_id=part_01/feed.xml"
+      ],
+      [
+        "eltiempo_colombia",
+        "invalid_pub_date",
+        "defect_01",
+        "bronze/source=eltiempo_colombia/ingestion_date=2026-11-04/run_id=defect_01/feed.xml"
+      ],
+      [
+        "eltiempo_colombia",
+        "missing_pub_date",
+        "defect_01",
+        "bronze/source=eltiempo_colombia/ingestion_date=2026-11-04/run_id=defect_01/feed.xml"
+      ],
+      [
+        "eltiempo_colombia",
+        "missing_title",
+        "defect_01",
+        "bronze/source=eltiempo_colombia/ingestion_date=2026-11-04/run_id=defect_01/feed.xml"
+      ],
+      [
+        "eltiempo_tecnosfera",
+        "malformed_xml: unclosed token: line 70, column 36",
+        "defect_01",
+        "bronze/source=eltiempo_tecnosfera/ingestion_date=2026-11-04/run_id=defect_01/feed.xml"
+      ]
+    ],
+    "data_scanned_bytes": 1960,
+    "engine_ms": 751,
+    "query_id": "102abeb6-2a41-4948-ac7d-93fcc9d47340"
+  },
+  "Q7": {
+    "sql": "SELECT news_id, version, last_run_id, title FROM silver_news WHERE version > 1",
+    "columns": [
+      "news_id",
+      "version",
+      "last_run_id",
+      "title"
+    ],
+    "rows": [
+      [
+        "82a5f6e84c89f72b6e24a9e1eb1ffe9e",
+        "3",
+        "partial_01",
+        "Homicidio en hotel de Medellín: asesinan a un hombre acusado de ofrecer dinero a niñas de 7 y 9 años para ingresarlas a su habitación"
+      ],
+      [
+        "ed86f7c4952f5168a14be55f62707767",
+        "3",
+        "partial_01",
+        "Ataque con drones y ráfagas de fusil a estación de Policía de Chimichagua, Cesar, no dejó heridos, gracias a la valerosa respuesta de los uniformados"
+      ]
+    ],
+    "data_scanned_bytes": 141,
+    "engine_ms": 929,
+    "query_id": "4b712d1c-de2e-41c0-937a-08543b1b48fe"
+  },
+  "Q8": {
+    "sql": "SELECT count(*), count(DISTINCT news_id) FROM silver_news WHERE pub_date = '2026-11-03'",
+    "columns": [
+      "_col0",
+      "_col1"
+    ],
+    "rows": [
+      [
+        "27",
+        "27"
+      ]
+    ],
+    "data_scanned_bytes": 1061,
+    "engine_ms": 383,
+    "query_id": "0cf04905-9fdc-4f1a-bcaf-ccf18f6841e0"
+  },
+  "Q8_b": {
+    "sql": "SELECT count(*), count(DISTINCT news_id) FROM silver_news WHERE date_format(pub_date_utc, '%Y-%m-%d') = '2026-11-03'",
+    "columns": [
+      "_col0",
+      "_col1"
+    ],
+    "rows": [
+      [
+        "27",
+        "27"
+      ]
+    ],
+    "data_scanned_bytes": 2079,
+    "engine_ms": 1156,
+    "query_id": "5c33d049-8ac8-4a6c-8a2f-e5433d56d3bc"
+  }
+}

@@ -1,0 +1,29 @@
+﻿2d2455762051
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=dw_pipeline/run_id=dw_06b_reejecucion_tras_fallo/task_id=load_redshift/attempt=1.log
+[2026-11-04T02:08:48.369+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T02:08:48.414+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dw_pipeline.load_redshift dw_06b_reejecucion_tras_fallo [queued]>
+[2026-11-04T02:08:48.425+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dw_pipeline.load_redshift dw_06b_reejecucion_tras_fallo [queued]>
+[2026-11-04T02:08:48.426+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T02:08:48.440+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): load_redshift> on 2026-11-04 02:08:41.105207+00:00
+[2026-11-04T02:08:48.451+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=1435) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T02:08:48.451+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dw_pipeline', 'load_redshift', 'dw_06b_reejecucion_tras_fallo', '--job-id', '84', '--raw', '--subdir', 'DAGS_FOLDER/dw_pipeline.py', '--cfg-path', '/tmp/tmpbc2c4vxo']
+[2026-11-04T02:08:48.453+0000] {standard_task_runner.py:64} INFO - Started process 1436 to run task
+[2026-11-04T02:08:48.453+0000] {standard_task_runner.py:91} INFO - Job 84: Subtask load_redshift
+[2026-11-04T02:08:48.531+0000] {task_command.py:426} INFO - Running <TaskInstance: dw_pipeline.load_redshift dw_06b_reejecucion_tras_fallo [running]> on host 2d2455762051
+[2026-11-04T02:08:48.688+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='dw_pipeline' AIRFLOW_CTX_TASK_ID='load_redshift' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T02:08:41.105207+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dw_06b_reejecucion_tras_fallo'
+[2026-11-04T02:08:48.689+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T02:08:48.740+0000] {credentials.py:1075} INFO - Found credentials from IAM Role: de-gr02-user-4-dw-ec2-role
+[2026-11-04T02:08:51.400+0000] {s3_raw.py:236} INFO - batch_id=batch_004_fail COPY "raw".mysql_customers filas=54
+[2026-11-04T02:08:52.558+0000] {s3_raw.py:236} INFO - batch_id=batch_004_fail COPY "raw".mysql_products filas=27
+[2026-11-04T02:08:53.472+0000] {s3_raw.py:236} INFO - batch_id=batch_004_fail COPY "raw".mysql_orders filas=3
+[2026-11-04T02:08:54.106+0000] {s3_raw.py:236} INFO - batch_id=batch_004_fail COPY "raw".mysql_order_items filas=3
+[2026-11-04T02:08:55.118+0000] {s3_raw.py:236} INFO - batch_id=batch_004_fail COPY "raw".mongo_reviews filas=3
+[2026-11-04T02:08:56.049+0000] {s3_raw.py:236} INFO - batch_id=batch_004_fail COPY "raw".mongo_navigation_events filas=3
+[2026-11-04T02:08:56.814+0000] {python.py:237} INFO - Done. Returned value was: {'batch_id': 'batch_004_fail', 'mode': 'incremental', 'reused': True, 'rows': {'customers': 54, 'products': 27, 'orders': 3, 'order_items': 3, 'reviews': 3, 'navigation_events': 3}, 'loaded': {'"raw".mysql_customers': 54, '"raw".mysql_products': 27, '"raw".mysql_orders': 3, '"raw".mysql_order_items': 3, '"raw".mongo_reviews': 3, '"raw".mongo_navigation_events': 3}}
+[2026-11-04T02:08:56.815+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T02:08:56.870+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dw_pipeline, task_id=load_redshift, run_id=dw_06b_reejecucion_tras_fallo, execution_date=20261104T020841, start_date=20261104T020848, end_date=20261104T020856
+[2026-11-04T02:08:56.912+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T02:08:56.967+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T02:08:56.973+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

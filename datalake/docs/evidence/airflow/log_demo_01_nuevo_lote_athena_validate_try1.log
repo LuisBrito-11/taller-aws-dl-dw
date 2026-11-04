@@ -1,0 +1,34 @@
+﻿d41f7add4fef
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=news_pipeline/run_id=demo_01_nuevo_lote/task_id=athena_validate/attempt=1.log
+[2026-11-04T01:00:40.085+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T01:00:40.127+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: news_pipeline.athena_validate demo_01_nuevo_lote [queued]>
+[2026-11-04T01:00:40.138+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: news_pipeline.athena_validate demo_01_nuevo_lote [queued]>
+[2026-11-04T01:00:40.138+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T01:00:40.151+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): athena_validate> on 2026-11-04 00:59:33.315140+00:00
+[2026-11-04T01:00:40.162+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'news_pipeline', 'athena_validate', 'demo_01_nuevo_lote', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/news_pipeline.py', '--cfg-path', '/tmp/tmpt0ffty05']
+[2026-11-04T01:00:40.163+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=308) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T01:00:40.163+0000] {standard_task_runner.py:64} INFO - Started process 310 to run task
+[2026-11-04T01:00:40.163+0000] {standard_task_runner.py:91} INFO - Job 24: Subtask athena_validate
+[2026-11-04T01:00:40.249+0000] {task_command.py:426} INFO - Running <TaskInstance: news_pipeline.athena_validate demo_01_nuevo_lote [running]> on host d41f7add4fef
+[2026-11-04T01:00:40.398+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='news_pipeline' AIRFLOW_CTX_TASK_ID='athena_validate' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T00:59:33.315140+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='demo_01_nuevo_lote'
+[2026-11-04T01:00:40.399+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T01:00:40.422+0000] {credentials.py:1075} INFO - Found credentials from IAM Role: de-gr02-user-4-dl-ec2-role
+[2026-11-04T01:01:08.017+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:01:08,016 INFO run_id=demo_01_nuevo_lote source=- task=athena_validate silver_news_id_unico -> {'violations': 0, 'ok': True}
+[2026-11-04T01:01:08.017+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:01:08,017 INFO run_id=demo_01_nuevo_lote source=- task=athena_validate silver_campos_obligatorios -> {'violations': 0, 'ok': True}
+[2026-11-04T01:01:08.018+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:01:08,017 INFO run_id=demo_01_nuevo_lote source=- task=athena_validate silver_enlaces_validos -> {'violations': 0, 'ok': True}
+[2026-11-04T01:01:08.018+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:01:08,018 INFO run_id=demo_01_nuevo_lote source=- task=athena_validate silver_fechas_validas -> {'violations': 0, 'ok': True}
+[2026-11-04T01:01:08.018+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:01:08,018 INFO run_id=demo_01_nuevo_lote source=- task=athena_validate entidades_sin_noticia -> {'violations': 0, 'ok': True}
+[2026-11-04T01:01:08.018+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:01:08,018 INFO run_id=demo_01_nuevo_lote source=- task=athena_validate frases_sin_noticia -> {'violations': 0, 'ok': True}
+[2026-11-04T01:01:08.018+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:01:08,018 INFO run_id=demo_01_nuevo_lote source=- task=athena_validate entidades_duplicadas -> {'violations': 0, 'ok': True}
+[2026-11-04T01:01:08.018+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:01:08,018 INFO run_id=demo_01_nuevo_lote source=- task=athena_validate frases_duplicadas -> {'violations': 0, 'ok': True}
+[2026-11-04T01:01:08.019+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:01:08,019 INFO run_id=demo_01_nuevo_lote source=- task=athena_validate noticias_silver_vs_gold -> {'silver': 39, 'gold': 39, 'ok': True}
+[2026-11-04T01:01:08.019+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:01:08,019 INFO run_id=demo_01_nuevo_lote source=- task=athena_validate entidades_silver_vs_gold -> {'silver': 98, 'gold': 98, 'ok': True}
+[2026-11-04T01:01:08.019+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:01:08,019 INFO run_id=demo_01_nuevo_lote source=- task=athena_validate frases_silver_vs_gold -> {'silver': 280, 'gold': 280, 'ok': True}
+[2026-11-04T01:01:08.019+0000] {python.py:237} INFO - Done. Returned value was: {'silver_news_id_unico': {'violations': 0, 'ok': True}, 'silver_campos_obligatorios': {'violations': 0, 'ok': True}, 'silver_enlaces_validos': {'violations': 0, 'ok': True}, 'silver_fechas_validas': {'violations': 0, 'ok': True}, 'entidades_sin_noticia': {'violations': 0, 'ok': True}, 'frases_sin_noticia': {'violations': 0, 'ok': True}, 'entidades_duplicadas': {'violations': 0, 'ok': True}, 'frases_duplicadas': {'violations': 0, 'ok': True}, 'noticias_silver_vs_gold': {'silver': 39, 'gold': 39, 'ok': True}, 'entidades_silver_vs_gold': {'silver': 98, 'gold': 98, 'ok': True}, 'frases_silver_vs_gold': {'silver': 280, 'gold': 280, 'ok': True}}
+[2026-11-04T01:01:08.019+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T01:01:08.087+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=news_pipeline, task_id=athena_validate, run_id=demo_01_nuevo_lote, execution_date=20261104T005933, start_date=20261104T010040, end_date=20261104T010108
+[2026-11-04T01:01:08.142+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T01:01:08.174+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T01:01:08.176+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

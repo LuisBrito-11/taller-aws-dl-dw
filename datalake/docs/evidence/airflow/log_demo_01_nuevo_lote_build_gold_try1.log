@@ -1,0 +1,24 @@
+﻿d41f7add4fef
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=news_pipeline/run_id=demo_01_nuevo_lote/task_id=build_gold/attempt=1.log
+[2026-11-04T00:59:54.527+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T00:59:54.566+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: news_pipeline.build_gold demo_01_nuevo_lote [queued]>
+[2026-11-04T00:59:54.577+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: news_pipeline.build_gold demo_01_nuevo_lote [queued]>
+[2026-11-04T00:59:54.578+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T00:59:54.591+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): build_gold> on 2026-11-04 00:59:33.315140+00:00
+[2026-11-04T00:59:54.602+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'news_pipeline', 'build_gold', 'demo_01_nuevo_lote', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/news_pipeline.py', '--cfg-path', '/tmp/tmp0o3pyfa5']
+[2026-11-04T00:59:54.602+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=287) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T00:59:54.603+0000] {standard_task_runner.py:91} INFO - Job 22: Subtask build_gold
+[2026-11-04T00:59:54.603+0000] {standard_task_runner.py:64} INFO - Started process 289 to run task
+[2026-11-04T00:59:54.673+0000] {task_command.py:426} INFO - Running <TaskInstance: news_pipeline.build_gold demo_01_nuevo_lote [running]> on host d41f7add4fef
+[2026-11-04T00:59:54.819+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='news_pipeline' AIRFLOW_CTX_TASK_ID='build_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T00:59:33.315140+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='demo_01_nuevo_lote'
+[2026-11-04T00:59:54.821+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T00:59:54.845+0000] {credentials.py:1075} INFO - Found credentials from IAM Role: de-gr02-user-4-dl-ec2-role
+[2026-11-04T00:59:57.762+0000] {logging_mixin.py:188} WARNING - 2026-11-04 00:59:57,762 INFO run_id=- source=- task=build_gold Gold publicado {'gold_news_daily': {'partitions': 8, 'rows': 12, 'stale_deleted': 0}, 'gold_entity_daily': {'partitions': 8, 'rows': 80, 'stale_deleted': 0}, 'gold_key_phrase_section_daily': {'partitions': 8, 'rows': 263, 'stale_deleted': 0}}
+[2026-11-04T00:59:57.763+0000] {python.py:237} INFO - Done. Returned value was: {'gold_news_daily': {'partitions': 8, 'rows': 12, 'stale_deleted': 0}, 'gold_entity_daily': {'partitions': 8, 'rows': 80, 'stale_deleted': 0}, 'gold_key_phrase_section_daily': {'partitions': 8, 'rows': 263, 'stale_deleted': 0}}
+[2026-11-04T00:59:57.763+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T00:59:57.810+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=news_pipeline, task_id=build_gold, run_id=demo_01_nuevo_lote, execution_date=20261104T005933, start_date=20261104T005954, end_date=20261104T005957
+[2026-11-04T00:59:57.866+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T00:59:57.905+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T00:59:57.907+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

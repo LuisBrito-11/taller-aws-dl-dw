@@ -1,0 +1,95 @@
+﻿2d2455762051
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=dw_pipeline/run_id=dw_01_carga_inicial/task_id=dbt_run_marts/attempt=2.log
+[2026-11-04T01:52:10.323+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T01:52:10.369+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dw_pipeline.dbt_run_marts dw_01_carga_inicial [queued]>
+[2026-11-04T01:52:10.380+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dw_pipeline.dbt_run_marts dw_01_carga_inicial [queued]>
+[2026-11-04T01:52:10.381+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 3
+[2026-11-04T01:52:10.396+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): dbt_run_marts> on 2026-11-04 01:49:45.107614+00:00
+[2026-11-04T01:52:10.406+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=391) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T01:52:10.406+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dw_pipeline', 'dbt_run_marts', 'dw_01_carga_inicial', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/dw_pipeline.py', '--cfg-path', '/tmp/tmpj39pyxn4']
+[2026-11-04T01:52:10.408+0000] {standard_task_runner.py:64} INFO - Started process 392 to run task
+[2026-11-04T01:52:10.409+0000] {standard_task_runner.py:91} INFO - Job 14: Subtask dbt_run_marts
+[2026-11-04T01:52:10.486+0000] {task_command.py:426} INFO - Running <TaskInstance: dw_pipeline.dbt_run_marts dw_01_carga_inicial [running]> on host 2d2455762051
+[2026-11-04T01:52:10.637+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='dw_pipeline' AIRFLOW_CTX_TASK_ID='dbt_run_marts' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T01:49:45.107614+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='dw_01_carga_inicial'
+[2026-11-04T01:52:10.638+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T01:52:10.639+0000] {dw_pipeline.py:118} INFO - batch_id=batch_001_initial dbt_run_marts
+[2026-11-04T01:52:10.640+0000] {dbt_runner.py:19} INFO - dbt: /home/***/dbt-venv/bin/dbt run --project-dir /opt/***/src/dbt --profiles-dir /opt/***/src/dbt --select path:models/marts
+[2026-11-04T01:52:23.976+0000] {dbt_runner.py:23} INFO - [0m01:52:13  Running with dbt=1.9.11
+[2026-11-04T01:52:23.976+0000] {dbt_runner.py:23} INFO - [0m01:52:13  This version of dbt is deprecated and no longer receives regular patches, including for known bugs. We recommend upgrading to a newer supported version of dbt: https://docs.getdbt.com/docs/dbt-versions
+[2026-11-04T01:52:23.976+0000] {dbt_runner.py:23} INFO - [0m01:52:14  Registered adapter: redshift=1.9.5
+[2026-11-04T01:52:23.977+0000] {dbt_runner.py:23} INFO - [0m01:52:15  Found 33 models, 2 snapshots, 92 data tests, 2 seeds, 6 sources, 671 macros
+[2026-11-04T01:52:23.977+0000] {dbt_runner.py:23} INFO - [0m01:52:15  
+[2026-11-04T01:52:23.977+0000] {dbt_runner.py:23} INFO - [0m01:52:15  Concurrency: 4 threads (target='redshift')
+[2026-11-04T01:52:23.977+0000] {dbt_runner.py:23} INFO - [0m01:52:15  
+[2026-11-04T01:52:23.977+0000] {dbt_runner.py:23} INFO - [0m01:52:15  1 of 9 START sql table model marts.dim_customer ................................ [RUN]
+[2026-11-04T01:52:23.977+0000] {dbt_runner.py:23} INFO - [0m01:52:15  2 of 9 START sql table model marts.dim_date .................................... [RUN]
+[2026-11-04T01:52:23.977+0000] {dbt_runner.py:23} INFO - [0m01:52:15  3 of 9 START sql table model marts.dim_event_type .............................. [RUN]
+[2026-11-04T01:52:23.978+0000] {dbt_runner.py:23} INFO - [0m01:52:15  4 of 9 START sql table model marts.dim_geography ............................... [RUN]
+[2026-11-04T01:52:23.978+0000] {dbt_runner.py:23} INFO - [0m01:52:19  3 of 9 OK created sql table model marts.dim_event_type ......................... [[32mSUCCESS[0m in 3.63s]
+[2026-11-04T01:52:23.978+0000] {dbt_runner.py:23} INFO - [0m01:52:19  4 of 9 OK created sql table model marts.dim_geography .......................... [[32mSUCCESS[0m in 3.63s]
+[2026-11-04T01:52:23.978+0000] {dbt_runner.py:23} INFO - [0m01:52:19  1 of 9 OK created sql table model marts.dim_customer ........................... [[32mSUCCESS[0m in 3.64s]
+[2026-11-04T01:52:23.978+0000] {dbt_runner.py:23} INFO - [0m01:52:19  5 of 9 START sql table model marts.dim_product ................................. [RUN]
+[2026-11-04T01:52:23.978+0000] {dbt_runner.py:23} INFO - [0m01:52:19  6 of 9 START sql table model marts.dim_sales_channel ........................... [RUN]
+[2026-11-04T01:52:23.979+0000] {dbt_runner.py:23} INFO - [0m01:52:20  2 of 9 OK created sql table model marts.dim_date ............................... [[32mSUCCESS[0m in 4.53s]
+[2026-11-04T01:52:23.979+0000] {dbt_runner.py:23} INFO - [0m01:52:22  6 of 9 OK created sql table model marts.dim_sales_channel ...................... [[32mSUCCESS[0m in 2.84s]
+[2026-11-04T01:52:23.979+0000] {dbt_runner.py:23} INFO - [0m01:52:22  5 of 9 OK created sql table model marts.dim_product ............................ [[32mSUCCESS[0m in 2.84s]
+[2026-11-04T01:52:23.979+0000] {dbt_runner.py:23} INFO - [0m01:52:22  7 of 9 START sql incremental model marts.fct_navigation_events ................. [RUN]
+[2026-11-04T01:52:23.979+0000] {dbt_runner.py:23} INFO - [0m01:52:22  8 of 9 START sql incremental model marts.fct_reviews ........................... [RUN]
+[2026-11-04T01:52:23.979+0000] {dbt_runner.py:23} INFO - [0m01:52:22  9 of 9 START sql incremental model marts.fct_sales ............................. [RUN]
+[2026-11-04T01:52:23.979+0000] {dbt_runner.py:23} INFO - [0m01:52:22  7 of 9 ERROR creating sql incremental model marts.fct_navigation_events ........ [[31mERROR[0m in 0.39s]
+[2026-11-04T01:52:23.979+0000] {dbt_runner.py:23} INFO - [0m01:52:22  8 of 9 ERROR creating sql incremental model marts.fct_reviews .................. [[31mERROR[0m in 0.40s]
+[2026-11-04T01:52:23.980+0000] {dbt_runner.py:23} INFO - [0m01:52:22  9 of 9 ERROR creating sql incremental model marts.fct_sales .................... [[31mERROR[0m in 0.55s]
+[2026-11-04T01:52:23.980+0000] {dbt_runner.py:23} INFO - [0m01:52:23  
+[2026-11-04T01:52:23.980+0000] {dbt_runner.py:23} INFO - [0m01:52:23  Finished running 3 incremental models, 6 table models in 0 hours 0 minutes and 7.94 seconds (7.94s).
+[2026-11-04T01:52:23.980+0000] {dbt_runner.py:23} INFO - [0m01:52:23  
+[2026-11-04T01:52:23.980+0000] {dbt_runner.py:23} INFO - [0m01:52:23  [31mCompleted with 3 errors, 0 partial successes, and 0 warnings:[0m
+[2026-11-04T01:52:23.980+0000] {dbt_runner.py:23} INFO - [0m01:52:23  
+[2026-11-04T01:52:23.980+0000] {dbt_runner.py:23} INFO - [0m01:52:23    Database Error in model fct_navigation_events (models/marts/fct_navigation_events.sql)
+[2026-11-04T01:52:23.980+0000] {dbt_runner.py:23} INFO -   function convert_timezone("unknown", timestamp with time zone) does not exist
+[2026-11-04T01:52:23.981+0000] {dbt_runner.py:23} INFO -   compiled code at /tmp/dbt_target/run/ecommerce_dw/models/marts/fct_navigation_events.sql
+[2026-11-04T01:52:23.981+0000] {dbt_runner.py:23} INFO - [0m01:52:23  
+[2026-11-04T01:52:23.981+0000] {dbt_runner.py:23} INFO - [0m01:52:23    Database Error in model fct_reviews (models/marts/fct_reviews.sql)
+[2026-11-04T01:52:23.981+0000] {dbt_runner.py:23} INFO -   function convert_timezone("unknown", timestamp with time zone) does not exist
+[2026-11-04T01:52:23.981+0000] {dbt_runner.py:23} INFO -   compiled code at /tmp/dbt_target/run/ecommerce_dw/models/marts/fct_reviews.sql
+[2026-11-04T01:52:23.981+0000] {dbt_runner.py:23} INFO - [0m01:52:23  
+[2026-11-04T01:52:23.981+0000] {dbt_runner.py:23} INFO - [0m01:52:23    Database Error in model fct_sales (models/marts/fct_sales.sql)
+[2026-11-04T01:52:23.982+0000] {dbt_runner.py:23} INFO -   This type of correlated subquery pattern is not supported due to internal error
+[2026-11-04T01:52:23.982+0000] {dbt_runner.py:23} INFO - [0m01:52:23  
+[2026-11-04T01:52:23.982+0000] {dbt_runner.py:23} INFO - [0m01:52:23  Done. PASS=6 WARN=0 ERROR=3 SKIP=0 TOTAL=9
+[2026-11-04T01:52:23.982+0000] {dbt_runner.py:25} ERROR - 
+[2026-11-04T01:52:23.982+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T01:52:23.982+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 460, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/dw_pipeline.py", line 119, in _run
+    run_dbt(command, selector)
+  File "/opt/airflow/src/ecommerce_dw/transformations/dbt_runner.py", line 26, in run_dbt
+    raise RuntimeError(f"dbt {command} fallo con codigo {proc.returncode}")
+RuntimeError: dbt run fallo con codigo 1
+[2026-11-04T01:52:24.000+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=dw_pipeline, task_id=dbt_run_marts, run_id=dw_01_carga_inicial, execution_date=20261104T014945, start_date=20261104T015210, end_date=20261104T015224
+[2026-11-04T01:52:24.021+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 14 for task dbt_run_marts (dbt run fallo con codigo 1; 392)
+[2026-11-04T01:52:24.047+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-11-04T01:52:24.092+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T01:52:24.094+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

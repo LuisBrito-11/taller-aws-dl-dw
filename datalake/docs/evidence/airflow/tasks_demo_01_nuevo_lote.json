@@ -1,0 +1,644 @@
+﻿{
+  "task_instances": [
+    {
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_01_nuevo_lote",
+      "duration": 0.852598,
+      "end_date": "2026-11-04T00:59:36.847960+00:00",
+      "execution_date": "2026-11-04T00:59:33.315140+00:00",
+      "executor_config": "{}",
+      "hostname": "d41f7add4fef",
+      "map_index": -1,
+      "max_tries": 2,
+      "note": null,
+      "operator": "_PythonDecoratedOperator",
+      "pid": 254,
+      "pool": "default_pool",
+      "pool_slots": 1,
+      "priority_weight": 10,
+      "queue": "default",
+      "queued_when": "2026-11-04T00:59:34.424787+00:00",
+      "rendered_fields": {
+        "op_args": [],
+        "op_kwargs": {},
+        "templates_dict": null
+      },
+      "rendered_map_index": null,
+      "sla_miss": null,
+      "start_date": "2026-11-04T00:59:35.995362+00:00",
+      "state": "success",
+      "task_display_name": "validate_config",
+      "task_id": "validate_config",
+      "trigger": null,
+      "triggerer_job": null,
+      "try_number": 1,
+      "unixname": "airflow"
+    },
+    {
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_01_nuevo_lote",
+      "duration": 1.743721,
+      "end_date": "2026-11-04T00:59:41.031354+00:00",
+      "execution_date": "2026-11-04T00:59:33.315140+00:00",
+      "executor_config": "{}",
+      "hostname": "d41f7add4fef",
+      "map_index": 1,
+      "max_tries": 2,
+      "note": null,
+      "operator": "_PythonDecoratedOperator",
+      "pid": 263,
+      "pool": "default_pool",
+      "pool_slots": 1,
+      "priority_weight": 9,
+      "queue": "default",
+      "queued_when": "2026-11-04T00:59:37.432422+00:00",
+      "rendered_fields": {
+        "op_args": [],
+        "op_kwargs": {
+          "source": {
+            "medium": "El Tiempo",
+            "section": "Economia",
+            "source_id": "eltiempo_economia",
+            "url": "https://www.eltiempo.com/rss/economia.xml"
+          }
+        },
+        "templates_dict": null
+      },
+      "rendered_map_index": null,
+      "sla_miss": null,
+      "start_date": "2026-11-04T00:59:39.287633+00:00",
+      "state": "success",
+      "task_display_name": "ingest_source",
+      "task_id": "ingest_source",
+      "trigger": null,
+      "triggerer_job": null,
+      "try_number": 1,
+      "unixname": "airflow"
+    },
+    {
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_01_nuevo_lote",
+      "duration": 1.527044,
+      "end_date": "2026-11-04T00:59:40.986184+00:00",
+      "execution_date": "2026-11-04T00:59:33.315140+00:00",
+      "executor_config": "{}",
+      "hostname": "d41f7add4fef",
+      "map_index": 0,
+      "max_tries": 2,
+      "note": null,
+      "operator": "_PythonDecoratedOperator",
+      "pid": 265,
+      "pool": "default_pool",
+      "pool_slots": 1,
+      "priority_weight": 9,
+      "queue": "default",
+      "queued_when": "2026-11-04T00:59:37.432422+00:00",
+      "rendered_fields": {
+        "op_args": [],
+        "op_kwargs": {
+          "source": {
+            "medium": "El Tiempo",
+            "section": "Colombia",
+            "source_id": "eltiempo_colombia",
+            "url": "https://www.eltiempo.com/rss/colombia.xml"
+          }
+        },
+        "templates_dict": null
+      },
+      "rendered_map_index": null,
+      "sla_miss": null,
+      "start_date": "2026-11-04T00:59:39.459140+00:00",
+      "state": "success",
+      "task_display_name": "ingest_source",
+      "task_id": "ingest_source",
+      "trigger": null,
+      "triggerer_job": null,
+      "try_number": 1,
+      "unixname": "airflow"
+    },
+    {
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_01_nuevo_lote",
+      "duration": 1.434825,
+      "end_date": "2026-11-04T00:59:40.893965+00:00",
+      "execution_date": "2026-11-04T00:59:33.315140+00:00",
+      "executor_config": "{}",
+      "hostname": "d41f7add4fef",
+      "map_index": 2,
+      "max_tries": 2,
+      "note": null,
+      "operator": "_PythonDecoratedOperator",
+      "pid": 264,
+      "pool": "default_pool",
+      "pool_slots": 1,
+      "priority_weight": 9,
+      "queue": "default",
+      "queued_when": "2026-11-04T00:59:37.432422+00:00",
+      "rendered_fields": {
+        "op_args": [],
+        "op_kwargs": {
+          "source": {
+            "medium": "El Tiempo",
+            "section": "Tecnosfera",
+            "source_id": "eltiempo_tecnosfera",
+            "url": "https://www.eltiempo.com/rss/tecnosfera.xml"
+          }
+        },
+        "templates_dict": null
+      },
+      "rendered_map_index": null,
+      "sla_miss": null,
+      "start_date": "2026-11-04T00:59:39.459140+00:00",
+      "state": "success",
+      "task_display_name": "ingest_source",
+      "task_id": "ingest_source",
+      "trigger": null,
+      "triggerer_job": null,
+      "try_number": 1,
+      "unixname": "airflow"
+    },
+    {
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_01_nuevo_lote",
+      "duration": 0.791167,
+      "end_date": "2026-11-04T00:59:43.076920+00:00",
+      "execution_date": "2026-11-04T00:59:33.315140+00:00",
+      "executor_config": "{}",
+      "hostname": "d41f7add4fef",
+      "map_index": -1,
+      "max_tries": 2,
+      "note": null,
+      "operator": "_PythonDecoratedOperator",
+      "pid": 268,
+      "pool": "default_pool",
+      "pool_slots": 1,
+      "priority_weight": 8,
+      "queue": "default",
+      "queued_when": "2026-11-04T00:59:41.430903+00:00",
+      "rendered_fields": {
+        "op_args": [
+          [
+            {
+              "medium": "El Tiempo",
+              "section": "Colombia",
+              "source_id": "eltiempo_colombia",
+              "url": "https://www.eltiempo.com/rss/colombia.xml"
+            },
+            {
+              "medium": "El Tiempo",
+              "section": "Economia",
+              "source_id": "eltiempo_economia",
+              "url": "https://www.eltiempo.com/rss/economia.xml"
+            },
+            {
+              "medium": "El Tiempo",
+              "section": "Tecnosfera",
+              "source_id": "eltiempo_tecnosfera",
+              "url": "https://www.eltiempo.com/rss/tecnosfera.xml"
+            }
+          ]
+        ],
+        "op_kwargs": {},
+        "templates_dict": null
+      },
+      "rendered_map_index": null,
+      "sla_miss": null,
+      "start_date": "2026-11-04T00:59:42.285753+00:00",
+      "state": "success",
+      "task_display_name": "collect_ingest",
+      "task_id": "collect_ingest",
+      "trigger": null,
+      "triggerer_job": null,
+      "try_number": 1,
+      "unixname": "airflow"
+    },
+    {
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_01_nuevo_lote",
+      "duration": 1.773008,
+      "end_date": "2026-11-04T00:59:46.241276+00:00",
+      "execution_date": "2026-11-04T00:59:33.315140+00:00",
+      "executor_config": "{}",
+      "hostname": "d41f7add4fef",
+      "map_index": -1,
+      "max_tries": 2,
+      "note": null,
+      "operator": "_PythonDecoratedOperator",
+      "pid": 271,
+      "pool": "default_pool",
+      "pool_slots": 1,
+      "priority_weight": 7,
+      "queue": "default",
+      "queued_when": "2026-11-04T00:59:43.614690+00:00",
+      "rendered_fields": {
+        "op_args": [
+          {
+            "ingest_status": "complete",
+            "mode": "ingest",
+            "run_id": "demo_01_nuevo_lote",
+            "run_ids": [
+              "demo_01_nuevo_lote"
+            ],
+            "sources": {
+              "eltiempo_colombia": "ok",
+              "eltiempo_economia": "ok",
+              "eltiempo_tecnosfera": "ok"
+            }
+          }
+        ],
+        "op_kwargs": {},
+        "templates_dict": null
+      },
+      "rendered_map_index": null,
+      "sla_miss": null,
+      "start_date": "2026-11-04T00:59:44.468268+00:00",
+      "state": "success",
+      "task_display_name": "silver_transform",
+      "task_id": "silver_transform",
+      "trigger": null,
+      "triggerer_job": null,
+      "try_number": 1,
+      "unixname": "airflow"
+    },
+    {
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_01_nuevo_lote",
+      "duration": 0.778201,
+      "end_date": "2026-11-04T00:59:48.131515+00:00",
+      "execution_date": "2026-11-04T00:59:33.315140+00:00",
+      "executor_config": "{}",
+      "hostname": "d41f7add4fef",
+      "map_index": -1,
+      "max_tries": 2,
+      "note": null,
+      "operator": "_PythonDecoratedOperator",
+      "pid": 277,
+      "pool": "default_pool",
+      "pool_slots": 1,
+      "priority_weight": 6,
+      "queue": "default",
+      "queued_when": "2026-11-04T00:59:46.498864+00:00",
+      "rendered_fields": {
+        "op_args": [
+          {
+            "batches": {
+              "demo_01_nuevo_lote/eltiempo_colombia": {
+                "duplicate_in_batch": 0,
+                "new": 0,
+                "rejected": 0,
+                "stale_ignored": 0,
+                "unchanged": 10,
+                "updated": 0
+              },
+              "demo_01_nuevo_lote/eltiempo_economia": {
+                "duplicate_in_batch": 0,
+                "new": 0,
+                "rejected": 0,
+                "stale_ignored": 0,
+                "unchanged": 10,
+                "updated": 0
+              },
+              "demo_01_nuevo_lote/eltiempo_tecnosfera": {
+                "duplicate_in_batch": 0,
+                "new": 0,
+                "rejected": 0,
+                "stale_ignored": 0,
+                "unchanged": 10,
+                "updated": 0
+              }
+            },
+            "current_news": 39
+          }
+        ],
+        "op_kwargs": {},
+        "templates_dict": null
+      },
+      "rendered_map_index": null,
+      "sla_miss": null,
+      "start_date": "2026-11-04T00:59:47.353314+00:00",
+      "state": "success",
+      "task_display_name": "enrich",
+      "task_id": "enrich",
+      "trigger": null,
+      "triggerer_job": null,
+      "try_number": 1,
+      "unixname": "airflow"
+    },
+    {
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_01_nuevo_lote",
+      "duration": 3.452592,
+      "end_date": "2026-11-04T00:59:52.990370+00:00",
+      "execution_date": "2026-11-04T00:59:33.315140+00:00",
+      "executor_config": "{}",
+      "hostname": "d41f7add4fef",
+      "map_index": -1,
+      "max_tries": 2,
+      "note": null,
+      "operator": "_PythonDecoratedOperator",
+      "pid": 283,
+      "pool": "default_pool",
+      "pool_slots": 1,
+      "priority_weight": 5,
+      "queue": "default",
+      "queued_when": "2026-11-04T00:59:48.679878+00:00",
+      "rendered_fields": {
+        "op_args": [
+          {
+            "by_status": {},
+            "cache_size": 41,
+            "comprehend_calls_texts": 0
+          }
+        ],
+        "op_kwargs": {},
+        "templates_dict": null
+      },
+      "rendered_map_index": null,
+      "sla_miss": null,
+      "start_date": "2026-11-04T00:59:49.537778+00:00",
+      "state": "success",
+      "task_display_name": "publish_silver",
+      "task_id": "publish_silver",
+      "trigger": null,
+      "triggerer_job": null,
+      "try_number": 1,
+      "unixname": "airflow"
+    },
+    {
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_01_nuevo_lote",
+      "duration": 3.243313,
+      "end_date": "2026-11-04T00:59:57.810521+00:00",
+      "execution_date": "2026-11-04T00:59:33.315140+00:00",
+      "executor_config": "{}",
+      "hostname": "d41f7add4fef",
+      "map_index": -1,
+      "max_tries": 2,
+      "note": null,
+      "operator": "_PythonDecoratedOperator",
+      "pid": 289,
+      "pool": "default_pool",
+      "pool_slots": 1,
+      "priority_weight": 4,
+      "queue": "default",
+      "queued_when": "2026-11-04T00:59:53.684513+00:00",
+      "rendered_fields": {
+        "op_args": [
+          {
+            "news": {
+              "partitions": 8,
+              "rows": 39,
+              "stale_deleted": 0
+            },
+            "news_entities": {
+              "partitions": 8,
+              "rows": 98,
+              "stale_deleted": 0
+            },
+            "news_key_phrases": {
+              "partitions": 8,
+              "rows": 280,
+              "stale_deleted": 0
+            }
+          }
+        ],
+        "op_kwargs": {},
+        "templates_dict": null
+      },
+      "rendered_map_index": null,
+      "sla_miss": null,
+      "start_date": "2026-11-04T00:59:54.567208+00:00",
+      "state": "success",
+      "task_display_name": "build_gold",
+      "task_id": "build_gold",
+      "trigger": null,
+      "triggerer_job": null,
+      "try_number": 1,
+      "unixname": "airflow"
+    },
+    {
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_01_nuevo_lote",
+      "duration": 39.106012,
+      "end_date": "2026-11-04T01:00:38.703929+00:00",
+      "execution_date": "2026-11-04T00:59:33.315140+00:00",
+      "executor_config": "{}",
+      "hostname": "d41f7add4fef",
+      "map_index": -1,
+      "max_tries": 2,
+      "note": null,
+      "operator": "_PythonDecoratedOperator",
+      "pid": 295,
+      "pool": "default_pool",
+      "pool_slots": 1,
+      "priority_weight": 3,
+      "queue": "default",
+      "queued_when": "2026-11-04T00:59:58.742082+00:00",
+      "rendered_fields": {
+        "op_args": [
+          {
+            "gold_entity_daily": {
+              "partitions": 8,
+              "rows": 80,
+              "stale_deleted": 0
+            },
+            "gold_key_phrase_section_daily": {
+              "partitions": 8,
+              "rows": 263,
+              "stale_deleted": 0
+            },
+            "gold_news_daily": {
+              "partitions": 8,
+              "rows": 12,
+              "stale_deleted": 0
+            }
+          }
+        ],
+        "op_kwargs": {},
+        "templates_dict": null
+      },
+      "rendered_map_index": null,
+      "sla_miss": null,
+      "start_date": "2026-11-04T00:59:59.597917+00:00",
+      "state": "success",
+      "task_display_name": "update_catalog",
+      "task_id": "update_catalog",
+      "trigger": null,
+      "triggerer_job": null,
+      "try_number": 1,
+      "unixname": "airflow"
+    },
+    {
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_01_nuevo_lote",
+      "duration": 27.959932,
+      "end_date": "2026-11-04T01:01:08.087616+00:00",
+      "execution_date": "2026-11-04T00:59:33.315140+00:00",
+      "executor_config": "{}",
+      "hostname": "d41f7add4fef",
+      "map_index": -1,
+      "max_tries": 2,
+      "note": null,
+      "operator": "_PythonDecoratedOperator",
+      "pid": 310,
+      "pool": "default_pool",
+      "pool_slots": 1,
+      "priority_weight": 2,
+      "queue": "default",
+      "queued_when": "2026-11-04T01:00:39.267655+00:00",
+      "rendered_fields": {
+        "op_args": [
+          {
+            "gold_entity_daily": "ok",
+            "gold_key_phrase_section_daily": "ok",
+            "gold_news_daily": "ok",
+            "silver_news": "ok",
+            "silver_news_entities": "ok",
+            "silver_news_key_phrases": "ok",
+            "silver_quarantine": "ok"
+          }
+        ],
+        "op_kwargs": {},
+        "templates_dict": null
+      },
+      "rendered_map_index": null,
+      "sla_miss": null,
+      "start_date": "2026-11-04T01:00:40.127684+00:00",
+      "state": "success",
+      "task_display_name": "athena_validate",
+      "task_id": "athena_validate",
+      "trigger": null,
+      "triggerer_job": null,
+      "try_number": 1,
+      "unixname": "airflow"
+    },
+    {
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_01_nuevo_lote",
+      "duration": 0.932241,
+      "end_date": "2026-11-04T01:01:10.900683+00:00",
+      "execution_date": "2026-11-04T00:59:33.315140+00:00",
+      "executor_config": "{}",
+      "hostname": "d41f7add4fef",
+      "map_index": -1,
+      "max_tries": 2,
+      "note": null,
+      "operator": "_PythonDecoratedOperator",
+      "pid": 319,
+      "pool": "default_pool",
+      "pool_slots": 1,
+      "priority_weight": 1,
+      "queue": "default",
+      "queued_when": "2026-11-04T01:01:08.815871+00:00",
+      "rendered_fields": {
+        "op_args": [
+          {
+            "entidades_duplicadas": {
+              "ok": true,
+              "violations": 0
+            },
+            "entidades_silver_vs_gold": {
+              "gold": 98,
+              "ok": true,
+              "silver": 98
+            },
+            "entidades_sin_noticia": {
+              "ok": true,
+              "violations": 0
+            },
+            "frases_duplicadas": {
+              "ok": true,
+              "violations": 0
+            },
+            "frases_silver_vs_gold": {
+              "gold": 280,
+              "ok": true,
+              "silver": 280
+            },
+            "frases_sin_noticia": {
+              "ok": true,
+              "violations": 0
+            },
+            "noticias_silver_vs_gold": {
+              "gold": 39,
+              "ok": true,
+              "silver": 39
+            },
+            "silver_campos_obligatorios": {
+              "ok": true,
+              "violations": 0
+            },
+            "silver_enlaces_validos": {
+              "ok": true,
+              "violations": 0
+            },
+            "silver_fechas_validas": {
+              "ok": true,
+              "violations": 0
+            },
+            "silver_news_id_unico": {
+              "ok": true,
+              "violations": 0
+            }
+          },
+          {
+            "batches": {
+              "demo_01_nuevo_lote/eltiempo_colombia": {
+                "duplicate_in_batch": 0,
+                "new": 0,
+                "rejected": 0,
+                "stale_ignored": 0,
+                "unchanged": 10,
+                "updated": 0
+              },
+              "demo_01_nuevo_lote/eltiempo_economia": {
+                "duplicate_in_batch": 0,
+                "new": 0,
+                "rejected": 0,
+                "stale_ignored": 0,
+                "unchanged": 10,
+                "updated": 0
+              },
+              "demo_01_nuevo_lote/eltiempo_tecnosfera": {
+                "duplicate_in_batch": 0,
+                "new": 0,
+                "rejected": 0,
+                "stale_ignored": 0,
+                "unchanged": 10,
+                "updated": 0
+              }
+            },
+            "current_news": 39
+          },
+          {
+            "ingest_status": "complete",
+            "mode": "ingest",
+            "run_id": "demo_01_nuevo_lote",
+            "run_ids": [
+              "demo_01_nuevo_lote"
+            ],
+            "sources": {
+              "eltiempo_colombia": "ok",
+              "eltiempo_economia": "ok",
+              "eltiempo_tecnosfera": "ok"
+            }
+          }
+        ],
+        "op_kwargs": {},
+        "templates_dict": null
+      },
+      "rendered_map_index": null,
+      "sla_miss": null,
+      "start_date": "2026-11-04T01:01:09.968442+00:00",
+      "state": "success",
+      "task_display_name": "register_status",
+      "task_id": "register_status",
+      "trigger": null,
+      "triggerer_job": null,
+      "try_number": 1,
+      "unixname": "airflow"
+    }
+  ],
+  "total_entries": 12
+}
+

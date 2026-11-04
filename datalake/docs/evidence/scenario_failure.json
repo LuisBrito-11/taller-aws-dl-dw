@@ -1,0 +1,36 @@
+{
+  "scenario": "fallo_controlado_y_reejecucion",
+  "error": "FALLO CONTROLADO inyectado antes de 'publish_silver'",
+  "before": {
+    "silver_news": 34,
+    "silver_entities": 84,
+    "silver_key_phrases": 248,
+    "gold_news_total": 34,
+    "quarantine_rows": 5
+  },
+  "after_failure": {
+    "silver_news": 34,
+    "silver_entities": 84,
+    "silver_key_phrases": 248,
+    "gold_news_total": 34,
+    "quarantine_rows": 5
+  },
+  "run_status_written_on_failure": false,
+  "after_rerun": {
+    "silver_news": 36,
+    "silver_entities": 92,
+    "silver_key_phrases": 258,
+    "gold_news_total": 36,
+    "quarantine_rows": 5
+  },
+  "rerun_batch_counts": {
+    "fail_01/eltiempo_tecnosfera": {
+      "new": 0,
+      "unchanged": 12,
+      "updated": 0,
+      "rejected": 0,
+      "duplicate_in_batch": 0,
+      "stale_ignored": 0
+    }
+  }
+}

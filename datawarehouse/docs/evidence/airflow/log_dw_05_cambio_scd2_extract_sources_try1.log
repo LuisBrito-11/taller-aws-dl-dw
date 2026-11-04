@@ -1,0 +1,31 @@
+﻿2d2455762051
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=dw_pipeline/run_id=dw_05_cambio_scd2/task_id=extract_sources/attempt=1.log
+[2026-11-04T02:03:50.047+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T02:03:50.094+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dw_pipeline.extract_sources dw_05_cambio_scd2 [queued]>
+[2026-11-04T02:03:50.107+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dw_pipeline.extract_sources dw_05_cambio_scd2 [queued]>
+[2026-11-04T02:03:50.108+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T02:03:50.124+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): extract_sources> on 2026-11-04 02:03:47.079446+00:00
+[2026-11-04T02:03:50.135+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=1129) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T02:03:50.135+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dw_pipeline', 'extract_sources', 'dw_05_cambio_scd2', '--job-id', '61', '--raw', '--subdir', 'DAGS_FOLDER/dw_pipeline.py', '--cfg-path', '/tmp/tmponq3chdx']
+[2026-11-04T02:03:50.136+0000] {standard_task_runner.py:64} INFO - Started process 1130 to run task
+[2026-11-04T02:03:50.138+0000] {standard_task_runner.py:91} INFO - Job 61: Subtask extract_sources
+[2026-11-04T02:03:50.232+0000] {task_command.py:426} INFO - Running <TaskInstance: dw_pipeline.extract_sources dw_05_cambio_scd2 [running]> on host 2d2455762051
+[2026-11-04T02:03:50.635+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='dw_pipeline' AIRFLOW_CTX_TASK_ID='extract_sources' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T02:03:47.079446+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dw_05_cambio_scd2'
+[2026-11-04T02:03:50.636+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T02:03:50.678+0000] {credentials.py:1075} INFO - Found credentials from IAM Role: de-gr02-user-4-dw-ec2-role
+[2026-11-04T02:03:51.406+0000] {s3_raw.py:164} INFO - batch_id=batch_003_scd2 source=mysql entity=customers rows=54 watermark=None -> s3://de-gr02-user-4-dw-802655955683/raw/mysql/customers/batch_id=batch_003_scd2/part-000.csv.gz
+[2026-11-04T02:03:51.515+0000] {s3_raw.py:164} INFO - batch_id=batch_003_scd2 source=mysql entity=products rows=27 watermark=None -> s3://de-gr02-user-4-dw-802655955683/raw/mysql/products/batch_id=batch_003_scd2/part-000.csv.gz
+[2026-11-04T02:03:51.650+0000] {s3_raw.py:164} INFO - batch_id=batch_003_scd2 source=mysql entity=orders rows=0 watermark=1000012 -> s3://de-gr02-user-4-dw-802655955683/raw/mysql/orders/batch_id=batch_003_scd2/part-000.csv.gz
+[2026-11-04T02:03:51.774+0000] {s3_raw.py:164} INFO - batch_id=batch_003_scd2 source=mysql entity=order_items rows=0 watermark=10000012 -> s3://de-gr02-user-4-dw-802655955683/raw/mysql/order_items/batch_id=batch_003_scd2/part-000.csv.gz
+[2026-11-04T02:03:51.775+0000] {logger.py:121} INFO - You appear to be connected to a DocumentDB cluster. For more information regarding feature compatibility and support please visit https://www.mongodb.com/supportability/documentdb
+[2026-11-04T02:03:52.011+0000] {s3_raw.py:164} INFO - batch_id=batch_003_scd2 source=mongodb entity=reviews rows=0 watermark=1000012 -> s3://de-gr02-user-4-dw-802655955683/raw/mongodb/reviews/batch_id=batch_003_scd2/part-000.csv.gz
+[2026-11-04T02:03:52.013+0000] {logger.py:121} INFO - You appear to be connected to a DocumentDB cluster. For more information regarding feature compatibility and support please visit https://www.mongodb.com/supportability/documentdb
+[2026-11-04T02:03:52.186+0000] {s3_raw.py:164} INFO - batch_id=batch_003_scd2 source=mongodb entity=navigation_events rows=0 watermark=1000012 -> s3://de-gr02-user-4-dw-802655955683/raw/mongodb/navigation_events/batch_id=batch_003_scd2/part-000.csv.gz
+[2026-11-04T02:03:52.930+0000] {python.py:237} INFO - Done. Returned value was: {'batch_id': 'batch_003_scd2', 'mode': 'incremental', 'reused': False, 'rows': {'customers': 54, 'products': 27, 'orders': 0, 'order_items': 0, 'reviews': 0, 'navigation_events': 0}}
+[2026-11-04T02:03:52.931+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T02:03:52.988+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dw_pipeline, task_id=extract_sources, run_id=dw_05_cambio_scd2, execution_date=20261104T020347, start_date=20261104T020350, end_date=20261104T020352
+[2026-11-04T02:03:53.023+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T02:03:53.070+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T02:03:53.072+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

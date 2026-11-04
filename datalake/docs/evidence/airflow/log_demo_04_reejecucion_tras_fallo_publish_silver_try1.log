@@ -1,0 +1,24 @@
+﻿d41f7add4fef
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=news_pipeline/run_id=demo_04_reejecucion_tras_fallo/task_id=publish_silver/attempt=1.log
+[2026-11-04T01:07:33.951+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T01:07:33.990+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: news_pipeline.publish_silver demo_04_reejecucion_tras_fallo [queued]>
+[2026-11-04T01:07:34.001+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: news_pipeline.publish_silver demo_04_reejecucion_tras_fallo [queued]>
+[2026-11-04T01:07:34.002+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T01:07:34.014+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): publish_silver> on 2026-11-04 00:59:34.957637+00:00
+[2026-11-04T01:07:34.025+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=503) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T01:07:34.026+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'news_pipeline', 'publish_silver', 'demo_04_reejecucion_tras_fallo', '--job-id', '55', '--raw', '--subdir', 'DAGS_FOLDER/news_pipeline.py', '--cfg-path', '/tmp/tmp864nqbcb']
+[2026-11-04T01:07:34.027+0000] {standard_task_runner.py:64} INFO - Started process 505 to run task
+[2026-11-04T01:07:34.027+0000] {standard_task_runner.py:91} INFO - Job 55: Subtask publish_silver
+[2026-11-04T01:07:34.100+0000] {task_command.py:426} INFO - Running <TaskInstance: news_pipeline.publish_silver demo_04_reejecucion_tras_fallo [running]> on host d41f7add4fef
+[2026-11-04T01:07:34.265+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='news_pipeline' AIRFLOW_CTX_TASK_ID='publish_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T00:59:34.957637+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='demo_04_reejecucion_tras_fallo'
+[2026-11-04T01:07:34.267+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T01:07:34.289+0000] {credentials.py:1075} INFO - Found credentials from IAM Role: de-gr02-user-4-dl-ec2-role
+[2026-11-04T01:07:37.352+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:07:37,352 INFO run_id=- source=- task=publish_silver Silver publicado {'news': {'partitions': 8, 'rows': 39, 'stale_deleted': 0}, 'news_entities': {'partitions': 8, 'rows': 98, 'stale_deleted': 0}, 'news_key_phrases': {'partitions': 8, 'rows': 280, 'stale_deleted': 0}}
+[2026-11-04T01:07:37.352+0000] {python.py:237} INFO - Done. Returned value was: {'news': {'partitions': 8, 'rows': 39, 'stale_deleted': 0}, 'news_entities': {'partitions': 8, 'rows': 98, 'stale_deleted': 0}, 'news_key_phrases': {'partitions': 8, 'rows': 280, 'stale_deleted': 0}}
+[2026-11-04T01:07:37.353+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T01:07:37.398+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=news_pipeline, task_id=publish_silver, run_id=demo_04_reejecucion_tras_fallo, execution_date=20261104T005934, start_date=20261104T010733, end_date=20261104T010737
+[2026-11-04T01:07:37.436+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T01:07:37.473+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T01:07:37.475+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

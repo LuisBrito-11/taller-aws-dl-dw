@@ -1,0 +1,10 @@
+CLAUDE.md
+*.pdf
+.build/
+.env
+__pycache__/
+*.pyc
+target/
+dbt_packages/
+logs/
+~$*

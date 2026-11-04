@@ -1,0 +1,41 @@
+﻿2d2455762051
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=dw_pipeline/run_id=dw_02_reejecucion_lote_inicial/task_id=dbt_seed/attempt=1.log
+[2026-11-04T01:56:45.523+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T01:56:45.578+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dw_pipeline.dbt_seed dw_02_reejecucion_lote_inicial [queued]>
+[2026-11-04T01:56:45.590+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dw_pipeline.dbt_seed dw_02_reejecucion_lote_inicial [queued]>
+[2026-11-04T01:56:45.591+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T01:56:45.606+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): dbt_seed> on 2026-11-04 01:56:24.198852+00:00
+[2026-11-04T01:56:45.617+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=575) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T01:56:45.617+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dw_pipeline', 'dbt_seed', 'dw_02_reejecucion_lote_inicial', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/dw_pipeline.py', '--cfg-path', '/tmp/tmpqvg_xb53']
+[2026-11-04T01:56:45.619+0000] {standard_task_runner.py:64} INFO - Started process 576 to run task
+[2026-11-04T01:56:45.620+0000] {standard_task_runner.py:91} INFO - Job 22: Subtask dbt_seed
+[2026-11-04T01:56:45.705+0000] {task_command.py:426} INFO - Running <TaskInstance: dw_pipeline.dbt_seed dw_02_reejecucion_lote_inicial [running]> on host 2d2455762051
+[2026-11-04T01:56:45.906+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='dw_pipeline' AIRFLOW_CTX_TASK_ID='dbt_seed' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T01:56:24.198852+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dw_02_reejecucion_lote_inicial'
+[2026-11-04T01:56:45.907+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T01:56:45.908+0000] {dw_pipeline.py:118} INFO - batch_id=batch_001_initial dbt_seed
+[2026-11-04T01:56:45.909+0000] {dbt_runner.py:19} INFO - dbt: /home/***/dbt-venv/bin/dbt seed --project-dir /opt/***/src/dbt --profiles-dir /opt/***/src/dbt
+[2026-11-04T01:56:56.389+0000] {dbt_runner.py:23} INFO - [0m01:56:48  Running with dbt=1.9.11
+[2026-11-04T01:56:56.390+0000] {dbt_runner.py:23} INFO - [0m01:56:48  This version of dbt is deprecated and no longer receives regular patches, including for known bugs. We recommend upgrading to a newer supported version of dbt: https://docs.getdbt.com/docs/dbt-versions
+[2026-11-04T01:56:56.390+0000] {dbt_runner.py:23} INFO - [0m01:56:49  Registered adapter: redshift=1.9.5
+[2026-11-04T01:56:56.390+0000] {dbt_runner.py:23} INFO - [0m01:56:52  Found 33 models, 2 seeds, 92 data tests, 2 snapshots, 6 sources, 671 macros
+[2026-11-04T01:56:56.390+0000] {dbt_runner.py:23} INFO - [0m01:56:52  
+[2026-11-04T01:56:56.390+0000] {dbt_runner.py:23} INFO - [0m01:56:52  Concurrency: 4 threads (target='redshift')
+[2026-11-04T01:56:56.391+0000] {dbt_runner.py:23} INFO - [0m01:56:52  
+[2026-11-04T01:56:56.391+0000] {dbt_runner.py:23} INFO - [0m01:56:52  1 of 2 START seed file intermediate.colombia_holidays .......................... [RUN]
+[2026-11-04T01:56:56.391+0000] {dbt_runner.py:23} INFO - [0m01:56:52  2 of 2 START seed file intermediate.colombia_municipalities .................... [RUN]
+[2026-11-04T01:56:56.391+0000] {dbt_runner.py:23} INFO - [0m01:56:55  1 of 2 OK loaded seed file intermediate.colombia_holidays ...................... [[32mINSERT 53[0m in 2.45s]
+[2026-11-04T01:56:56.391+0000] {dbt_runner.py:23} INFO - [0m01:56:55  2 of 2 OK loaded seed file intermediate.colombia_municipalities ................ [[32mINSERT 8[0m in 2.65s]
+[2026-11-04T01:56:56.391+0000] {dbt_runner.py:23} INFO - [0m01:56:55  
+[2026-11-04T01:56:56.391+0000] {dbt_runner.py:23} INFO - [0m01:56:55  Finished running 2 seeds in 0 hours 0 minutes and 3.37 seconds (3.37s).
+[2026-11-04T01:56:56.392+0000] {dbt_runner.py:23} INFO - [0m01:56:55  
+[2026-11-04T01:56:56.392+0000] {dbt_runner.py:23} INFO - [0m01:56:55  [32mCompleted successfully[0m
+[2026-11-04T01:56:56.392+0000] {dbt_runner.py:23} INFO - [0m01:56:55  
+[2026-11-04T01:56:56.392+0000] {dbt_runner.py:23} INFO - [0m01:56:55  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[2026-11-04T01:56:56.392+0000] {python.py:237} INFO - Done. Returned value was: {'batch_id': 'batch_001_initial', 'mode': 'initial', 'reused': True, 'rows': {'customers': 54, 'products': 27, 'orders': 106, 'order_items': 259, 'reviews': 158, 'navigation_events': 508}, 'loaded': {'"raw".mysql_customers': 54, '"raw".mysql_products': 27, '"raw".mysql_orders': 106, '"raw".mysql_order_items': 259, '"raw".mongo_reviews': 158, '"raw".mongo_navigation_events': 508}}
+[2026-11-04T01:56:56.392+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T01:56:56.448+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dw_pipeline, task_id=dbt_seed, run_id=dw_02_reejecucion_lote_inicial, execution_date=20261104T015624, start_date=20261104T015645, end_date=20261104T015656
+[2026-11-04T01:56:56.489+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T01:56:56.531+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T01:56:56.533+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

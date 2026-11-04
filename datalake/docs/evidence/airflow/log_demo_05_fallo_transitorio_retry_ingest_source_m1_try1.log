@@ -1,0 +1,22 @@
+﻿d41f7add4fef
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=news_pipeline/run_id=demo_05_fallo_transitorio_retry/task_id=ingest_source/map_index=1/attempt=1.log
+[2026-11-04T01:08:51.435+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T01:08:51.573+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: news_pipeline.ingest_source demo_05_fallo_transitorio_retry map_index=1 [queued]>
+[2026-11-04T01:08:51.597+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: news_pipeline.ingest_source demo_05_fallo_transitorio_retry map_index=1 [queued]>
+[2026-11-04T01:08:51.597+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T01:08:51.626+0000] {taskinstance.py:2330} INFO - Executing <Mapped(_PythonDecoratedOperator): ingest_source> on 2026-11-04 00:59:35.754072+00:00
+[2026-11-04T01:08:51.639+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'news_pipeline', 'ingest_source', 'demo_05_fallo_transitorio_retry', '--job-id', '62', '--raw', '--subdir', 'DAGS_FOLDER/news_pipeline.py', '--cfg-path', '/tmp/tmpfyq3cry6', '--map-index', '1']
+[2026-11-04T01:08:51.644+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=540) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T01:08:51.645+0000] {standard_task_runner.py:64} INFO - Started process 546 to run task
+[2026-11-04T01:08:51.648+0000] {standard_task_runner.py:91} INFO - Job 62: Subtask ingest_source
+[2026-11-04T01:08:51.817+0000] {task_command.py:426} INFO - Running <TaskInstance: news_pipeline.ingest_source demo_05_fallo_transitorio_retry map_index=1 [running]> on host d41f7add4fef
+[2026-11-04T01:08:52.197+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='news_pipeline' AIRFLOW_CTX_TASK_ID='ingest_source' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T00:59:35.754072+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='demo_05_fallo_transitorio_retry'
+[2026-11-04T01:08:52.198+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T01:08:52.199+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T01:08:52.200+0000] {taskinstance.py:2506} INFO - modo reprocess: no se consultan los RSS
+[2026-11-04T01:08:52.240+0000] {taskinstance.py:1206} INFO - Marking task as SKIPPED. dag_id=news_pipeline, task_id=ingest_source, run_id=demo_05_fallo_transitorio_retry, map_index=1, execution_date=20261104T005935, start_date=20261104T010851, end_date=20261104T010852
+[2026-11-04T01:08:52.316+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T01:08:52.398+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T01:08:52.400+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

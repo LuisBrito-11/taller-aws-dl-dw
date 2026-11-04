@@ -1,0 +1,28 @@
+{
+  "scenario": "nuevo_lote_incremental",
+  "before": {
+    "silver_news": 31,
+    "silver_entities": 73,
+    "silver_key_phrases": 236,
+    "gold_news_total": 31,
+    "quarantine_rows": 5
+  },
+  "after": {
+    "silver_news": 34,
+    "silver_entities": 82,
+    "silver_key_phrases": 251,
+    "gold_news_total": 34,
+    "quarantine_rows": 5
+  },
+  "batch_counts": {
+    "incr_01/eltiempo_economia": {
+      "new": 3,
+      "unchanged": 10,
+      "updated": 0,
+      "rejected": 0,
+      "duplicate_in_batch": 0,
+      "stale_ignored": 0
+    }
+  },
+  "comprehend_texts_analyzed": 3
+}

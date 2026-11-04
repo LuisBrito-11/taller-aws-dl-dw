@@ -1,0 +1,24 @@
+﻿d41f7add4fef
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=news_pipeline/run_id=demo_01_nuevo_lote/task_id=collect_ingest/attempt=1.log
+[2026-11-04T00:59:42.242+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T00:59:42.285+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: news_pipeline.collect_ingest demo_01_nuevo_lote [queued]>
+[2026-11-04T00:59:42.294+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: news_pipeline.collect_ingest demo_01_nuevo_lote [queued]>
+[2026-11-04T00:59:42.294+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T00:59:42.307+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): collect_ingest> on 2026-11-04 00:59:33.315140+00:00
+[2026-11-04T00:59:42.317+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=266) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T00:59:42.317+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'news_pipeline', 'collect_ingest', 'demo_01_nuevo_lote', '--job-id', '18', '--raw', '--subdir', 'DAGS_FOLDER/news_pipeline.py', '--cfg-path', '/tmp/tmp9ch24bbi']
+[2026-11-04T00:59:42.318+0000] {standard_task_runner.py:64} INFO - Started process 268 to run task
+[2026-11-04T00:59:42.318+0000] {standard_task_runner.py:91} INFO - Job 18: Subtask collect_ingest
+[2026-11-04T00:59:42.389+0000] {task_command.py:426} INFO - Running <TaskInstance: news_pipeline.collect_ingest demo_01_nuevo_lote [running]> on host d41f7add4fef
+[2026-11-04T00:59:42.545+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='news_pipeline' AIRFLOW_CTX_TASK_ID='collect_ingest' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T00:59:33.315140+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='demo_01_nuevo_lote'
+[2026-11-04T00:59:42.547+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T00:59:42.582+0000] {credentials.py:1075} INFO - Found credentials from IAM Role: de-gr02-user-4-dl-ec2-role
+[2026-11-04T00:59:43.024+0000] {logging_mixin.py:188} WARNING - 2026-11-04 00:59:43,024 INFO run_id=demo_01_nuevo_lote source=- task=collect_ingest ejecucion complete {'eltiempo_colombia': 'ok', 'eltiempo_economia': 'ok', 'eltiempo_tecnosfera': 'ok'}
+[2026-11-04T00:59:43.024+0000] {python.py:237} INFO - Done. Returned value was: {'mode': 'ingest', 'run_ids': ['demo_01_nuevo_lote'], 'run_id': 'demo_01_nuevo_lote', 'ingest_status': 'complete', 'sources': {'eltiempo_colombia': 'ok', 'eltiempo_economia': 'ok', 'eltiempo_tecnosfera': 'ok'}}
+[2026-11-04T00:59:43.024+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T00:59:43.077+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=news_pipeline, task_id=collect_ingest, run_id=demo_01_nuevo_lote, execution_date=20261104T005933, start_date=20261104T005942, end_date=20261104T005943
+[2026-11-04T00:59:43.135+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T00:59:43.173+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T00:59:43.175+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

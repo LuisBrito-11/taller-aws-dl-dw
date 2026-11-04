@@ -1,0 +1,25 @@
+﻿d41f7add4fef
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=news_pipeline/run_id=demo_03_fallo_controlado/task_id=enrich/attempt=1.log
+[2026-11-04T01:02:58.474+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T01:02:58.513+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: news_pipeline.enrich demo_03_fallo_controlado [queued]>
+[2026-11-04T01:02:58.525+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: news_pipeline.enrich demo_03_fallo_controlado [queued]>
+[2026-11-04T01:02:58.525+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T01:02:58.538+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): enrich> on 2026-11-04 00:59:34.304983+00:00
+[2026-11-04T01:02:58.549+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=407) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T01:02:58.549+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'news_pipeline', 'enrich', 'demo_03_fallo_controlado', '--job-id', '44', '--raw', '--subdir', 'DAGS_FOLDER/news_pipeline.py', '--cfg-path', '/tmp/tmp8u18n0nw']
+[2026-11-04T01:02:58.550+0000] {standard_task_runner.py:64} INFO - Started process 409 to run task
+[2026-11-04T01:02:58.550+0000] {standard_task_runner.py:91} INFO - Job 44: Subtask enrich
+[2026-11-04T01:02:58.624+0000] {task_command.py:426} INFO - Running <TaskInstance: news_pipeline.enrich demo_03_fallo_controlado [running]> on host d41f7add4fef
+[2026-11-04T01:02:58.795+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='news_pipeline' AIRFLOW_CTX_TASK_ID='enrich' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T00:59:34.304983+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='demo_03_fallo_controlado'
+[2026-11-04T01:02:58.797+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T01:02:58.827+0000] {credentials.py:1075} INFO - Found credentials from IAM Role: de-gr02-user-4-dl-ec2-role
+[2026-11-04T01:02:59.368+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:02:59,368 INFO run_id=- source=- task=enrich textos vigentes=39, en cache=41, a analizar=0
+[2026-11-04T01:02:59.382+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:02:59,382 INFO run_id=- source=- task=enrich Comprehend: 0 textos nuevos analizados {} (cache total=41)
+[2026-11-04T01:02:59.383+0000] {python.py:237} INFO - Done. Returned value was: {'comprehend_calls_texts': 0, 'by_status': {}, 'cache_size': 41}
+[2026-11-04T01:02:59.383+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T01:02:59.429+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=news_pipeline, task_id=enrich, run_id=demo_03_fallo_controlado, execution_date=20261104T005934, start_date=20261104T010258, end_date=20261104T010259
+[2026-11-04T01:02:59.486+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T01:02:59.523+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T01:02:59.525+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

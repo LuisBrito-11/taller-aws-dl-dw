@@ -1,0 +1,74 @@
+# Airflow (LocalExecutor) + Postgres en una sola EC2. Credenciales AWS: rol de instancia (sin claves).
+x-airflow-common: &airflow-common
+  build: .
+  image: dl-airflow:local
+  environment: &airflow-env
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
+    AIRFLOW__CORE__MAX_ACTIVE_RUNS_PER_DAG: "1"
+    AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW_SECRET_KEY}
+    AIRFLOW__WEBSERVER__WORKERS: "2"
+    AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.basic_auth
+    PYTHONPATH: /opt/airflow/src
+    DL_BUCKET: ${DL_BUCKET}
+    DL_GLUE_DB: ${DL_GLUE_DB:-de_gr02_user_4_news}
+    DL_ATHENA_WORKGROUP: ${DL_ATHENA_WORKGROUP:-de-gr02-user-4-wg}
+    DL_CONFIG: /opt/airflow/config/sources.yaml
+    AWS_REGION: ${AWS_REGION:-us-east-2}
+    AWS_DEFAULT_REGION: ${AWS_REGION:-us-east-2}
+  volumes:
+    - ../dags:/opt/airflow/dags
+    - ../src:/opt/airflow/src
+    - ../config:/opt/airflow/config
+    - airflow-logs:/opt/airflow/logs
+  depends_on:
+    postgres:
+      condition: service_healthy
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 10
+
+  airflow-init:
+    <<: *airflow-common
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        airflow db migrate &&
+        airflow users create --username admin --firstname Admin --lastname DL --role Admin \
+          --email admin@example.com --password "${AIRFLOW_ADMIN_PASSWORD}"
+
+  webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+
+  scheduler:
+    <<: *airflow-common
+    command: scheduler
+    restart: unless-stopped
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+
+volumes:
+  pgdata:
+  airflow-logs:

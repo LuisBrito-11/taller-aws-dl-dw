@@ -1,0 +1,24 @@
+﻿d41f7add4fef
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=news_pipeline/run_id=scheduled__2026-11-04T00:00:00+00:00/task_id=register_status/attempt=1.log
+[2026-11-04T00:57:30.293+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T00:57:30.338+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: news_pipeline.register_status scheduled__2026-11-04T00:00:00+00:00 [queued]>
+[2026-11-04T00:57:30.353+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: news_pipeline.register_status scheduled__2026-11-04T00:00:00+00:00 [queued]>
+[2026-11-04T00:57:30.353+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T00:57:30.369+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): register_status> on 2026-11-04 00:00:00+00:00
+[2026-11-04T00:57:30.379+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'news_pipeline', 'register_status', 'scheduled__2026-11-04T00:00:00+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/news_pipeline.py', '--cfg-path', '/tmp/tmp7l5z0lwu']
+[2026-11-04T00:57:30.381+0000] {standard_task_runner.py:91} INFO - Job 13: Subtask register_status
+[2026-11-04T00:57:30.381+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=221) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T00:57:30.382+0000] {standard_task_runner.py:64} INFO - Started process 223 to run task
+[2026-11-04T00:57:30.487+0000] {task_command.py:426} INFO - Running <TaskInstance: news_pipeline.register_status scheduled__2026-11-04T00:00:00+00:00 [running]> on host d41f7add4fef
+[2026-11-04T00:57:30.764+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='news_pipeline' AIRFLOW_CTX_TASK_ID='register_status' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-11-04T00:00:00+00:00'
+[2026-11-04T00:57:30.766+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T00:57:30.806+0000] {credentials.py:1075} INFO - Found credentials from IAM Role: de-gr02-user-4-dl-ec2-role
+[2026-11-04T00:57:31.521+0000] {logging_mixin.py:188} WARNING - 2026-11-04 00:57:31,521 INFO run_id=scheduled__2026-11-04T00-00-00-00-00 source=- task=register_status estado registrado complete
+[2026-11-04T00:57:31.521+0000] {python.py:237} INFO - Done. Returned value was: {'run_id': 'scheduled__2026-11-04T00-00-00-00-00', 'ingest_status': 'complete', 'sources': {'eltiempo_colombia': 'ok', 'eltiempo_economia': 'ok', 'eltiempo_tecnosfera': 'ok'}, 'mode': 'ingest', 'finished_at_utc': '2026-11-04T00:57:31Z', 'transform': {'current_news': 39, 'batches': {'scheduled__2026-11-04T00-00-00-00-00/eltiempo_colombia': {'new': 1, 'unchanged': 9, 'updated': 0, 'rejected': 0, 'duplicate_in_batch': 0, 'stale_ignored': 0}, 'scheduled__2026-11-04T00-00-00-00-00/eltiempo_economia': {'new': 0, 'unchanged': 9, 'updated': 1, 'rejected': 0, 'duplicate_in_batch': 0, 'stale_ignored': 0}, 'scheduled__2026-11-04T00-00-00-00-00/eltiempo_tecnosfera': {'new': 0, 'unchanged': 10, 'updated': 0, 'rejected': 0, 'duplicate_in_batch': 0, 'stale_ignored': 0}}}, 'validation': {'silver_news_id_unico': {'violations': 0, 'ok': True}, 'silver_campos_obligatorios': {'violations': 0, 'ok': True}, 'silver_enlaces_validos': {'violations': 0, 'ok': True}, 'silver_fechas_validas': {'violations': 0, 'ok': True}, 'entidades_sin_noticia': {'violations': 0, 'ok': True}, 'frases_sin_noticia': {'violations': 0, 'ok': True}, 'entidades_duplicadas': {'violations': 0, 'ok': True}, 'frases_duplicadas': {'violations': 0, 'ok': True}, 'noticias_silver_vs_gold': {'silver': 39, 'gold': 39, 'ok': True}, 'entidades_silver_vs_gold': {'silver': 98, 'gold': 98, 'ok': True}, 'frases_silver_vs_gold': {'silver': 280, 'gold': 280, 'ok': True}}, 'airflow_run_id': 'scheduled__2026-11-04T00:00:00+00:00', 'reprocessed_bronze_run_id': None}
+[2026-11-04T00:57:31.522+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T00:57:31.583+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=news_pipeline, task_id=register_status, run_id=scheduled__2026-11-04T00:00:00+00:00, execution_date=20261104T000000, start_date=20261104T005730, end_date=20261104T005731
+[2026-11-04T00:57:31.621+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T00:57:31.647+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T00:57:31.649+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

@@ -1,0 +1,19 @@
+{
+  "dag_id": "dw_sources_admin",
+  "run_id": "src_02_append_batch_1",
+  "conf": {
+    "action": "append_batch",
+    "batch_number": 1
+  },
+  "state": "success",
+  "tasks": {
+    "source_counts": {
+      "state": "success",
+      "try_number": 1
+    },
+    "operate": {
+      "state": "success",
+      "try_number": 1
+    }
+  }
+}

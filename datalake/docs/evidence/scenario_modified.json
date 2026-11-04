@@ -1,0 +1,40 @@
+{
+  "scenario": "noticia_modificada",
+  "before": {
+    "silver_news": 34,
+    "silver_entities": 82,
+    "silver_key_phrases": 251,
+    "gold_news_total": 34,
+    "quarantine_rows": 5
+  },
+  "after": {
+    "silver_news": 34,
+    "silver_entities": 84,
+    "silver_key_phrases": 248,
+    "gold_news_total": 34,
+    "quarantine_rows": 5
+  },
+  "versions_gt_1": [
+    [
+      "Ataque con drones y ráfagas de fusil a estación de Policía de Chimichagua, Cesar, no dejó heridos, gracias a la valerosa respuesta de los uniformados",
+      "2",
+      "modified_01"
+    ],
+    [
+      "TITULO MODIFICADO: Petro y el Congreso discuten reforma en Bogota",
+      "2",
+      "modified_01"
+    ]
+  ],
+  "batch_counts": {
+    "modified_01/eltiempo_colombia": {
+      "new": 0,
+      "unchanged": 8,
+      "updated": 2,
+      "rejected": 0,
+      "duplicate_in_batch": 0,
+      "stale_ignored": 0
+    }
+  },
+  "comprehend_texts_analyzed": 1
+}

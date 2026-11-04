@@ -1,0 +1,63 @@
+{
+  "dag_id": "dw_pipeline",
+  "run_id": "dw_01_carga_inicial",
+  "conf": {
+    "batch_id": "batch_001_initial",
+    "mode": "initial"
+  },
+  "state": "failed",
+  "tasks": {
+    "dbt_run_marts": {
+      "state": "failed",
+      "try_number": 3
+    },
+    "dbt_test": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "reconcile": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "register_result": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "extract_sources": {
+      "state": "success",
+      "try_number": 1
+    },
+    "validate_connections": {
+      "state": "success",
+      "try_number": 1
+    },
+    "dbt_run_intermediate": {
+      "state": "success",
+      "try_number": 1
+    },
+    "verify_s3_files": {
+      "state": "success",
+      "try_number": 1
+    },
+    "dbt_deps": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_redshift": {
+      "state": "success",
+      "try_number": 1
+    },
+    "dbt_seed": {
+      "state": "success",
+      "try_number": 1
+    },
+    "dbt_run_quarantine": {
+      "state": "success",
+      "try_number": 1
+    },
+    "dbt_snapshot": {
+      "state": "success",
+      "try_number": 1
+    }
+  }
+}

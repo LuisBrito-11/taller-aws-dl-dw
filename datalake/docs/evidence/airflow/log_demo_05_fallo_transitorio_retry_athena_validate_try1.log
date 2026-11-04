@@ -1,0 +1,34 @@
+﻿d41f7add4fef
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=news_pipeline/run_id=demo_05_fallo_transitorio_retry/task_id=athena_validate/attempt=1.log
+[2026-11-04T01:10:43.002+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T01:10:43.044+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: news_pipeline.athena_validate demo_05_fallo_transitorio_retry [queued]>
+[2026-11-04T01:10:43.053+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: news_pipeline.athena_validate demo_05_fallo_transitorio_retry [queued]>
+[2026-11-04T01:10:43.054+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T01:10:43.066+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): athena_validate> on 2026-11-04 00:59:35.754072+00:00
+[2026-11-04T01:10:43.076+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=605) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T01:10:43.076+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'news_pipeline', 'athena_validate', 'demo_05_fallo_transitorio_retry', '--job-id', '71', '--raw', '--subdir', 'DAGS_FOLDER/news_pipeline.py', '--cfg-path', '/tmp/tmp_ldy19db']
+[2026-11-04T01:10:43.078+0000] {standard_task_runner.py:91} INFO - Job 71: Subtask athena_validate
+[2026-11-04T01:10:43.078+0000] {standard_task_runner.py:64} INFO - Started process 607 to run task
+[2026-11-04T01:10:43.152+0000] {task_command.py:426} INFO - Running <TaskInstance: news_pipeline.athena_validate demo_05_fallo_transitorio_retry [running]> on host d41f7add4fef
+[2026-11-04T01:10:43.318+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='news_pipeline' AIRFLOW_CTX_TASK_ID='athena_validate' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T00:59:35.754072+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='demo_05_fallo_transitorio_retry'
+[2026-11-04T01:10:43.319+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T01:10:43.341+0000] {credentials.py:1075} INFO - Found credentials from IAM Role: de-gr02-user-4-dl-ec2-role
+[2026-11-04T01:11:07.881+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:11:07,881 INFO run_id=demo_05_fallo_transitorio_retry source=- task=athena_validate silver_news_id_unico -> {'violations': 0, 'ok': True}
+[2026-11-04T01:11:07.882+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:11:07,882 INFO run_id=demo_05_fallo_transitorio_retry source=- task=athena_validate silver_campos_obligatorios -> {'violations': 0, 'ok': True}
+[2026-11-04T01:11:07.882+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:11:07,882 INFO run_id=demo_05_fallo_transitorio_retry source=- task=athena_validate silver_enlaces_validos -> {'violations': 0, 'ok': True}
+[2026-11-04T01:11:07.882+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:11:07,882 INFO run_id=demo_05_fallo_transitorio_retry source=- task=athena_validate silver_fechas_validas -> {'violations': 0, 'ok': True}
+[2026-11-04T01:11:07.883+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:11:07,883 INFO run_id=demo_05_fallo_transitorio_retry source=- task=athena_validate entidades_sin_noticia -> {'violations': 0, 'ok': True}
+[2026-11-04T01:11:07.883+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:11:07,883 INFO run_id=demo_05_fallo_transitorio_retry source=- task=athena_validate frases_sin_noticia -> {'violations': 0, 'ok': True}
+[2026-11-04T01:11:07.883+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:11:07,883 INFO run_id=demo_05_fallo_transitorio_retry source=- task=athena_validate entidades_duplicadas -> {'violations': 0, 'ok': True}
+[2026-11-04T01:11:07.883+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:11:07,883 INFO run_id=demo_05_fallo_transitorio_retry source=- task=athena_validate frases_duplicadas -> {'violations': 0, 'ok': True}
+[2026-11-04T01:11:07.883+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:11:07,883 INFO run_id=demo_05_fallo_transitorio_retry source=- task=athena_validate noticias_silver_vs_gold -> {'silver': 39, 'gold': 39, 'ok': True}
+[2026-11-04T01:11:07.884+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:11:07,884 INFO run_id=demo_05_fallo_transitorio_retry source=- task=athena_validate entidades_silver_vs_gold -> {'silver': 98, 'gold': 98, 'ok': True}
+[2026-11-04T01:11:07.884+0000] {logging_mixin.py:188} WARNING - 2026-11-04 01:11:07,884 INFO run_id=demo_05_fallo_transitorio_retry source=- task=athena_validate frases_silver_vs_gold -> {'silver': 280, 'gold': 280, 'ok': True}
+[2026-11-04T01:11:07.884+0000] {python.py:237} INFO - Done. Returned value was: {'silver_news_id_unico': {'violations': 0, 'ok': True}, 'silver_campos_obligatorios': {'violations': 0, 'ok': True}, 'silver_enlaces_validos': {'violations': 0, 'ok': True}, 'silver_fechas_validas': {'violations': 0, 'ok': True}, 'entidades_sin_noticia': {'violations': 0, 'ok': True}, 'frases_sin_noticia': {'violations': 0, 'ok': True}, 'entidades_duplicadas': {'violations': 0, 'ok': True}, 'frases_duplicadas': {'violations': 0, 'ok': True}, 'noticias_silver_vs_gold': {'silver': 39, 'gold': 39, 'ok': True}, 'entidades_silver_vs_gold': {'silver': 98, 'gold': 98, 'ok': True}, 'frases_silver_vs_gold': {'silver': 280, 'gold': 280, 'ok': True}}
+[2026-11-04T01:11:07.884+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T01:11:07.953+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=news_pipeline, task_id=athena_validate, run_id=demo_05_fallo_transitorio_retry, execution_date=20261104T005935, start_date=20261104T011043, end_date=20261104T011107
+[2026-11-04T01:11:08.002+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T01:11:08.033+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T01:11:08.034+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

@@ -1,0 +1,65 @@
+{
+  "dag_id": "dw_pipeline",
+  "run_id": "dw_06a_fallo_controlado",
+  "conf": {
+    "batch_id": "batch_004_fail",
+    "mode": "incremental",
+    "fail_at": "load_redshift",
+    "fail_attempts": 5
+  },
+  "state": "failed",
+  "tasks": {
+    "validate_connections": {
+      "state": "success",
+      "try_number": 1
+    },
+    "dbt_run_quarantine": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "dbt_snapshot": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "dbt_run_marts": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "dbt_test": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "reconcile": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "register_result": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "extract_sources": {
+      "state": "success",
+      "try_number": 1
+    },
+    "verify_s3_files": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_redshift": {
+      "state": "failed",
+      "try_number": 3
+    },
+    "dbt_deps": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "dbt_seed": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "dbt_run_intermediate": {
+      "state": "upstream_failed",
+      "try_number": 0
+    }
+  }
+}

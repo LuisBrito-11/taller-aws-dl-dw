@@ -1,0 +1,80 @@
+{
+  "scenario": "registros_defectuosos",
+  "before": {
+    "silver_news": 30,
+    "silver_entities": 69,
+    "silver_key_phrases": 233,
+    "gold_news_total": 30,
+    "quarantine_rows": 0
+  },
+  "after": {
+    "silver_news": 31,
+    "silver_entities": 73,
+    "silver_key_phrases": 236,
+    "gold_news_total": 31,
+    "quarantine_rows": 5
+  },
+  "quarantine": [
+    [
+      "eltiempo_colombia",
+      "invalid_link",
+      "bronze/source=eltiempo_colombia/ingestion_date=2026-11-04/run_id=defect_01/feed.xml"
+    ],
+    [
+      "eltiempo_colombia",
+      "invalid_pub_date",
+      "bronze/source=eltiempo_colombia/ingestion_date=2026-11-04/run_id=defect_01/feed.xml"
+    ],
+    [
+      "eltiempo_colombia",
+      "missing_pub_date",
+      "bronze/source=eltiempo_colombia/ingestion_date=2026-11-04/run_id=defect_01/feed.xml"
+    ],
+    [
+      "eltiempo_colombia",
+      "missing_title",
+      "bronze/source=eltiempo_colombia/ingestion_date=2026-11-04/run_id=defect_01/feed.xml"
+    ],
+    [
+      "eltiempo_tecnosfera",
+      "malformed_xml: unclosed token: line 70, column 36",
+      "bronze/source=eltiempo_tecnosfera/ingestion_date=2026-11-04/run_id=defect_01/feed.xml"
+    ]
+  ],
+  "batch_counts": {
+    "defect_01/eltiempo_colombia": {
+      "new": 1,
+      "unchanged": 6,
+      "updated": 0,
+      "rejected": 4,
+      "duplicate_in_batch": 1,
+      "stale_ignored": 0
+    },
+    "defect_01/eltiempo_tecnosfera": {
+      "new": 0,
+      "unchanged": 0,
+      "updated": 0,
+      "rejected": 1,
+      "duplicate_in_batch": 0,
+      "stale_ignored": 0
+    }
+  },
+  "controlled_manifest": {
+    "run_id": "defect_01",
+    "source_id": "eltiempo_colombia",
+    "medium": "El Tiempo",
+    "section": "Colombia",
+    "url": "https://www.eltiempo.com/rss/colombia.xml",
+    "ingested_at_utc": "2026-11-04T00:03:15Z",
+    "ingestion_date": "2026-11-04",
+    "http_status": 200,
+    "content_sha256": "ecc4e3da4a5f8619301a2d0fbb9166bac117a7fde6ae9898646ad58b1d1c70e0",
+    "content_bytes": 14796,
+    "s3_key": "bronze/source=eltiempo_colombia/ingestion_date=2026-11-04/run_id=defect_01/feed.xml",
+    "status": "ok",
+    "detail": null,
+    "controlled_copy": true,
+    "parent_run_id": "initial_load_01",
+    "manifest_key": "bronze/source=eltiempo_colombia/ingestion_date=2026-11-04/run_id=defect_01/manifest.json"
+  }
+}

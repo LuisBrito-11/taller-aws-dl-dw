@@ -1,0 +1,41 @@
+﻿2d2455762051
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=dw_pipeline/run_id=dw_05_cambio_scd2/task_id=dbt_snapshot/attempt=1.log
+[2026-11-04T02:04:49.304+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T02:04:49.349+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dw_pipeline.dbt_snapshot dw_05_cambio_scd2 [queued]>
+[2026-11-04T02:04:49.361+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dw_pipeline.dbt_snapshot dw_05_cambio_scd2 [queued]>
+[2026-11-04T02:04:49.361+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T02:04:49.376+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): dbt_snapshot> on 2026-11-04 02:03:47.079446+00:00
+[2026-11-04T02:04:49.386+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=1223) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T02:04:49.386+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dw_pipeline', 'dbt_snapshot', 'dw_05_cambio_scd2', '--job-id', '68', '--raw', '--subdir', 'DAGS_FOLDER/dw_pipeline.py', '--cfg-path', '/tmp/tmp2mu6qvot']
+[2026-11-04T02:04:49.388+0000] {standard_task_runner.py:64} INFO - Started process 1224 to run task
+[2026-11-04T02:04:49.389+0000] {standard_task_runner.py:91} INFO - Job 68: Subtask dbt_snapshot
+[2026-11-04T02:04:49.471+0000] {task_command.py:426} INFO - Running <TaskInstance: dw_pipeline.dbt_snapshot dw_05_cambio_scd2 [running]> on host 2d2455762051
+[2026-11-04T02:04:49.629+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='dw_pipeline' AIRFLOW_CTX_TASK_ID='dbt_snapshot' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T02:03:47.079446+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dw_05_cambio_scd2'
+[2026-11-04T02:04:49.630+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T02:04:49.631+0000] {dw_pipeline.py:118} INFO - batch_id=batch_003_scd2 dbt_snapshot
+[2026-11-04T02:04:49.632+0000] {dbt_runner.py:19} INFO - dbt: /home/***/dbt-venv/bin/dbt snapshot --project-dir /opt/***/src/dbt --profiles-dir /opt/***/src/dbt
+[2026-11-04T02:04:59.165+0000] {dbt_runner.py:23} INFO - [0m02:04:52  Running with dbt=1.9.11
+[2026-11-04T02:04:59.166+0000] {dbt_runner.py:23} INFO - [0m02:04:52  This version of dbt is deprecated and no longer receives regular patches, including for known bugs. We recommend upgrading to a newer supported version of dbt: https://docs.getdbt.com/docs/dbt-versions
+[2026-11-04T02:04:59.166+0000] {dbt_runner.py:23} INFO - [0m02:04:53  Registered adapter: redshift=1.9.5
+[2026-11-04T02:04:59.166+0000] {dbt_runner.py:23} INFO - [0m02:04:54  Found 33 models, 2 seeds, 92 data tests, 2 snapshots, 6 sources, 671 macros
+[2026-11-04T02:04:59.166+0000] {dbt_runner.py:23} INFO - [0m02:04:54  
+[2026-11-04T02:04:59.166+0000] {dbt_runner.py:23} INFO - [0m02:04:54  Concurrency: 4 threads (target='redshift')
+[2026-11-04T02:04:59.167+0000] {dbt_runner.py:23} INFO - [0m02:04:54  
+[2026-11-04T02:04:59.167+0000] {dbt_runner.py:23} INFO - [0m02:04:55  1 of 2 START snapshot intermediate.snap_dim_customer ........................... [RUN]
+[2026-11-04T02:04:59.167+0000] {dbt_runner.py:23} INFO - [0m02:04:55  2 of 2 START snapshot intermediate.snap_dim_product ............................ [RUN]
+[2026-11-04T02:04:59.167+0000] {dbt_runner.py:23} INFO - [0m02:04:57  2 of 2 OK snapshotted intermediate.snap_dim_product ............................ [[32mSUCCESS[0m in 2.79s]
+[2026-11-04T02:04:59.167+0000] {dbt_runner.py:23} INFO - [0m02:04:58  1 of 2 OK snapshotted intermediate.snap_dim_customer ........................... [[32mSUCCESS[0m in 3.28s]
+[2026-11-04T02:04:59.167+0000] {dbt_runner.py:23} INFO - [0m02:04:58  
+[2026-11-04T02:04:59.167+0000] {dbt_runner.py:23} INFO - [0m02:04:58  Finished running 2 snapshots in 0 hours 0 minutes and 4.01 seconds (4.01s).
+[2026-11-04T02:04:59.167+0000] {dbt_runner.py:23} INFO - [0m02:04:58  
+[2026-11-04T02:04:59.168+0000] {dbt_runner.py:23} INFO - [0m02:04:58  [32mCompleted successfully[0m
+[2026-11-04T02:04:59.168+0000] {dbt_runner.py:23} INFO - [0m02:04:58  
+[2026-11-04T02:04:59.168+0000] {dbt_runner.py:23} INFO - [0m02:04:58  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[2026-11-04T02:04:59.168+0000] {python.py:237} INFO - Done. Returned value was: {'batch_id': 'batch_003_scd2', 'mode': 'incremental', 'reused': False, 'rows': {'customers': 54, 'products': 27, 'orders': 0, 'order_items': 0, 'reviews': 0, 'navigation_events': 0}, 'loaded': {'"raw".mysql_customers': 54, '"raw".mysql_products': 27, '"raw".mysql_orders': 0, '"raw".mysql_order_items': 0, '"raw".mongo_reviews': 0, '"raw".mongo_navigation_events': 0}}
+[2026-11-04T02:04:59.168+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T02:04:59.222+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dw_pipeline, task_id=dbt_snapshot, run_id=dw_05_cambio_scd2, execution_date=20261104T020347, start_date=20261104T020449, end_date=20261104T020459
+[2026-11-04T02:04:59.261+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T02:04:59.299+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T02:04:59.301+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

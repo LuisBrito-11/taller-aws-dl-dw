@@ -1,0 +1,30 @@
+digraph DL {
+  rankdir=TB; bgcolor="white"; pad=0.3; nodesep=0.35; ranksep=0.55;
+  node [shape=box, style="rounded,filled", fontname="Arial", fontsize=11, color="#4a5568", fillcolor="#f7fafc", penwidth=1.2];
+  edge [fontname="Arial", fontsize=9, color="#4a5568"];
+
+  rss [label="Feeds RSS El Tiempo\ncolombia · economia · tecnosfera", fillcolor="#fff7e6"];
+
+  subgraph cluster_ec2 { label="EC2 t3.medium · Docker Compose"; fontname="Arial"; fontsize=11; style="rounded,dashed"; color="#a0aec0";
+    af [label="Airflow 2.9\nDAG news_pipeline\n(cada 30 min, max_active_runs=1)", fillcolor="#ebf8ff"];
+  }
+
+  subgraph cluster_s3 { label="S3 privado de-gr02-user-4-datalake (cifrado, versionado)"; fontname="Arial"; fontsize=11; style="rounded"; color="#2f855a";
+    bronze [label="bronze/\nsource=/ingestion_date=/run_id=/\nfeed.xml + manifest.json", fillcolor="#f0fff4"];
+    quar   [label="silver/quarantine/\nrechazos + motivo + bronze_key", fillcolor="#fff5f5"];
+    silver [label="silver/ (Parquet, pub_date=)\nnews · news_entities · news_key_phrases", fillcolor="#f0fff4"];
+    gold   [label="gold/ (Parquet, pub_date=)\nnews_daily · entity_daily ·\nkey_phrase_section_daily", fillcolor="#f0fff4"];
+  }
+  comp [label="Amazon Comprehend\nidioma · entidades · frases clave\n(caché por text_hash)", fillcolor="#faf5ff"];
+  glue [label="AWS Glue Data Catalog\nde_gr02_user_4_news (7 tablas)\nMSCK REPAIR TABLE", fillcolor="#fffaf0"];
+  ath  [label="Amazon Athena\nworkgroup de-gr02-user-4-wg\nconsultas + validaciones", fillcolor="#fffaf0"];
+
+  rss -> af [label="HTTP"];
+  af -> bronze [label="1 ingesta"];
+  bronze -> silver [label="2 parseo, limpieza,\nvalidación, dedup"];
+  bronze -> quar [style=dashed];
+  silver -> comp [dir=both, label="3 enriquecer\n(solo textos nuevos)"];
+  silver -> gold [label="4 agregados"];
+  silver -> glue; gold -> glue [label="5 tablas/particiones"];
+  glue -> ath [label="6 SQL"];
+}

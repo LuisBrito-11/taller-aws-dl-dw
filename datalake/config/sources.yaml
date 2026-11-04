@@ -1,0 +1,24 @@
+# Fuentes RSS (directorio: https://www.eltiempo.com/rss). Cada URL es un FEED XML, no la pagina del directorio.
+sources:
+  - source_id: eltiempo_colombia
+    medium: El Tiempo
+    section: Colombia
+    url: https://www.eltiempo.com/rss/colombia.xml
+  - source_id: eltiempo_economia
+    medium: El Tiempo
+    section: Economia
+    url: https://www.eltiempo.com/rss/economia.xml
+  - source_id: eltiempo_tecnosfera
+    medium: El Tiempo
+    section: Tecnosfera
+    url: https://www.eltiempo.com/rss/tecnosfera.xml
+
+http:
+  timeout_seconds: 20
+  user_agent: "eia-datalake-lab/1.0 (curso Ingenieria de Datos)"
+
+comprehend:
+  min_score: 0.5
+  max_text_bytes: 4500        # limite de la API: 5000 bytes UTF-8 por documento
+  entity_types: [PERSON, ORGANIZATION, LOCATION]
+  supported_languages: [es, en, fr, de, it, pt]

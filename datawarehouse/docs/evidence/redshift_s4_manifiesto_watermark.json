@@ -1,0 +1,21 @@
+{
+  "name": "s4_manifiesto_watermark",
+  "sql": "select batch_id, status, left(detail, 300) from ops.batch_log where batch_id = 'batch_002_incr' and status in ('extracted','succeeded') order by updated_at",
+  "columns": [
+    "batch_id",
+    "status",
+    "left"
+  ],
+  "rows": [
+    [
+      "batch_002_incr",
+      "extracted",
+      "{\"customers\": 54, \"products\": 27, \"orders\": 3, \"order_items\": 3, \"reviews\": 3, \"navigation_events\": 3, \"reused\": false}"
+    ],
+    [
+      "batch_002_incr",
+      "succeeded",
+      "{\"marts\": {\"fct_reviews\": 153, \"dim_product\": 25, \"dim_customer\": 50, \"fct_sales\": 256, \"fct_navigation_events\": 503}, \"reconciliation\": {\"source_lines\": 262, \"fct_lines\": 256, \"quarantine_lines\": 6, \"source_total\": 7357330.42, \"fct_plus_quarantine_total\": 7357330.42}, \"loaded\": {\"\\\"raw\\\".mysql_cust"
+    ]
+  ]
+}

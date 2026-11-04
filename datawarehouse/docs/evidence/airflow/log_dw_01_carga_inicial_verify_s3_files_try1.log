@@ -1,0 +1,29 @@
+﻿2d2455762051
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=dw_pipeline/run_id=dw_01_carga_inicial/task_id=verify_s3_files/attempt=1.log
+[2026-11-04T01:49:51.390+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T01:49:51.435+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dw_pipeline.verify_s3_files dw_01_carga_inicial [queued]>
+[2026-11-04T01:49:51.446+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dw_pipeline.verify_s3_files dw_01_carga_inicial [queued]>
+[2026-11-04T01:49:51.447+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T01:49:51.461+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): verify_s3_files> on 2026-11-04 01:49:45.107614+00:00
+[2026-11-04T01:49:51.472+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=226) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T01:49:51.472+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dw_pipeline', 'verify_s3_files', 'dw_01_carga_inicial', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/dw_pipeline.py', '--cfg-path', '/tmp/tmp991ukj2f']
+[2026-11-04T01:49:51.473+0000] {standard_task_runner.py:64} INFO - Started process 227 to run task
+[2026-11-04T01:49:51.475+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask verify_s3_files
+[2026-11-04T01:49:51.557+0000] {task_command.py:426} INFO - Running <TaskInstance: dw_pipeline.verify_s3_files dw_01_carga_inicial [running]> on host 2d2455762051
+[2026-11-04T01:49:51.714+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='dw_pipeline' AIRFLOW_CTX_TASK_ID='verify_s3_files' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T01:49:45.107614+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dw_01_carga_inicial'
+[2026-11-04T01:49:51.715+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T01:49:51.747+0000] {credentials.py:1075} INFO - Found credentials from IAM Role: de-gr02-user-4-dw-ec2-role
+[2026-11-04T01:49:52.013+0000] {dw_pipeline.py:103} INFO - batch_id=batch_001_initial s3://de-gr02-user-4-dw-802655955683/raw/mysql/customers/batch_id=batch_001_initial/part-000.csv.gz rows=54 OK
+[2026-11-04T01:49:52.098+0000] {dw_pipeline.py:103} INFO - batch_id=batch_001_initial s3://de-gr02-user-4-dw-802655955683/raw/mysql/products/batch_id=batch_001_initial/part-000.csv.gz rows=27 OK
+[2026-11-04T01:49:52.187+0000] {dw_pipeline.py:103} INFO - batch_id=batch_001_initial s3://de-gr02-user-4-dw-802655955683/raw/mysql/orders/batch_id=batch_001_initial/part-000.csv.gz rows=106 OK
+[2026-11-04T01:49:52.272+0000] {dw_pipeline.py:103} INFO - batch_id=batch_001_initial s3://de-gr02-user-4-dw-802655955683/raw/mysql/order_items/batch_id=batch_001_initial/part-000.csv.gz rows=259 OK
+[2026-11-04T01:49:52.353+0000] {dw_pipeline.py:103} INFO - batch_id=batch_001_initial s3://de-gr02-user-4-dw-802655955683/raw/mongodb/reviews/batch_id=batch_001_initial/part-000.csv.gz rows=158 OK
+[2026-11-04T01:49:52.604+0000] {dw_pipeline.py:103} INFO - batch_id=batch_001_initial s3://de-gr02-user-4-dw-802655955683/raw/mongodb/navigation_events/batch_id=batch_001_initial/part-000.csv.gz rows=508 OK
+[2026-11-04T01:49:52.605+0000] {python.py:237} INFO - Done. Returned value was: {'batch_id': 'batch_001_initial', 'mode': 'initial', 'reused': False, 'rows': {'customers': 54, 'products': 27, 'orders': 106, 'order_items': 259, 'reviews': 158, 'navigation_events': 508}}
+[2026-11-04T01:49:52.605+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T01:49:52.659+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dw_pipeline, task_id=verify_s3_files, run_id=dw_01_carga_inicial, execution_date=20261104T014945, start_date=20261104T014951, end_date=20261104T014952
+[2026-11-04T01:49:52.691+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T01:49:52.737+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T01:49:52.739+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

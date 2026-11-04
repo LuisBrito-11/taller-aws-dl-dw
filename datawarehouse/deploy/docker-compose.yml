@@ -1,0 +1,65 @@
+# Airflow (LocalExecutor) + dbt en la misma EC2. Fuentes y Redshift son servicios administrados de AWS.
+x-airflow-common: &airflow-common
+  build: .
+  image: dw-airflow:local
+  environment:
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
+    AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW_SECRET_KEY}
+    AIRFLOW__WEBSERVER__WORKERS: "2"
+    AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.basic_auth
+    PYTHONPATH: /opt/airflow/src
+    AWS_REGION: ${AWS_REGION}
+    AWS_DEFAULT_REGION: ${AWS_REGION}
+    DW_BUCKET: ${DW_BUCKET}
+    MYSQL_HOST: ${MYSQL_HOST}
+    MYSQL_PORT: "3306"
+    MYSQL_USER: ${MYSQL_USER}
+    MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    MYSQL_DATABASE: ${MYSQL_DATABASE}
+    MONGO_DATABASE: ${MONGO_DATABASE}
+    # DocumentDB: TLS con el bundle de AWS, sin retryWrites (no soportado), lectura en primario
+    MONGODB_URI: mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_HOST}:27017/?tls=true&tlsCAFile=/opt/airflow/global-bundle.pem&replicaSet=rs0&readPreference=primary&retryWrites=false
+    REDSHIFT_HOST: ${REDSHIFT_HOST}
+    REDSHIFT_USER: ${REDSHIFT_USER}
+    REDSHIFT_PASSWORD: ${REDSHIFT_PASSWORD}
+    REDSHIFT_DATABASE: ${REDSHIFT_DATABASE}
+    REDSHIFT_IAM_ROLE: ${REDSHIFT_IAM_ROLE}
+  volumes:
+    - ../dags:/opt/airflow/dags
+    - ../src:/opt/airflow/src
+    - airflow-logs:/opt/airflow/logs
+  depends_on:
+    postgres:
+      condition: service_healthy
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment: {POSTGRES_USER: airflow, POSTGRES_PASSWORD: airflow, POSTGRES_DB: airflow}
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck: {test: ["CMD", "pg_isready", "-U", "airflow"], interval: 5s, retries: 10}
+  airflow-init:
+    <<: *airflow-common
+    entrypoint: /bin/bash
+    command: ["-c", "airflow db migrate && airflow users create --username admin --firstname Admin --lastname DW --role Admin --email admin@example.com --password \"$${AIRFLOW_ADMIN_PASSWORD}\""]
+    environment:
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+      AIRFLOW_ADMIN_PASSWORD: ${AIRFLOW_ADMIN_PASSWORD}
+  webserver:
+    <<: *airflow-common
+    command: webserver
+    ports: ["8080:8080"]
+    restart: unless-stopped
+    depends_on: {airflow-init: {condition: service_completed_successfully}}
+  scheduler:
+    <<: *airflow-common
+    command: scheduler
+    restart: unless-stopped
+    depends_on: {airflow-init: {condition: service_completed_successfully}}
+
+volumes:
+  pgdata:
+  airflow-logs:

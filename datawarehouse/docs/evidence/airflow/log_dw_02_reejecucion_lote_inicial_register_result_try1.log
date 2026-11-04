@@ -1,0 +1,23 @@
+﻿2d2455762051
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=dw_pipeline/run_id=dw_02_reejecucion_lote_inicial/task_id=register_result/attempt=1.log
+[2026-11-04T01:58:24.021+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T01:58:24.068+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dw_pipeline.register_result dw_02_reejecucion_lote_inicial [queued]>
+[2026-11-04T01:58:24.080+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dw_pipeline.register_result dw_02_reejecucion_lote_inicial [queued]>
+[2026-11-04T01:58:24.080+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T01:58:24.095+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): register_result> on 2026-11-04 01:56:24.198852+00:00
+[2026-11-04T01:58:24.106+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=719) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T01:58:24.106+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dw_pipeline', 'register_result', 'dw_02_reejecucion_lote_inicial', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/dw_pipeline.py', '--cfg-path', '/tmp/tmpiuondxzb']
+[2026-11-04T01:58:24.107+0000] {standard_task_runner.py:64} INFO - Started process 720 to run task
+[2026-11-04T01:58:24.108+0000] {standard_task_runner.py:91} INFO - Job 29: Subtask register_result
+[2026-11-04T01:58:24.188+0000] {task_command.py:426} INFO - Running <TaskInstance: dw_pipeline.register_result dw_02_reejecucion_lote_inicial [running]> on host 2d2455762051
+[2026-11-04T01:58:24.339+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='dw_pipeline' AIRFLOW_CTX_TASK_ID='register_result' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T01:56:24.198852+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dw_02_reejecucion_lote_inicial'
+[2026-11-04T01:58:24.340+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T01:58:25.792+0000] {dw_pipeline.py:154} INFO - batch_id=batch_001_initial SUCCEEDED {'marts': {'fct_reviews': 150, 'dim_product': 25, 'fct_navigation_events': 500, 'dim_customer': 50, 'fct_sales': 253}, 'reconciliation': {'source_lines': 259, 'fct_lines': 253, 'quarantine_lines': 6, 'source_total': 7293860.26, 'fct_plus_quarantine_total': 7293860.26}, 'loaded': {'"raw".mysql_customers': 54, '"raw".mysql_products': 27, '"raw".mysql_orders': 106, '"raw".mysql_order_items': 259, '"raw".mongo_reviews': 158, '"raw".mongo_navigation_events': 508}, 'reused_s3_batch': True}
+[2026-11-04T01:58:25.792+0000] {python.py:237} INFO - Done. Returned value was: {'marts': {'fct_reviews': 150, 'dim_product': 25, 'fct_navigation_events': 500, 'dim_customer': 50, 'fct_sales': 253}, 'reconciliation': {'source_lines': 259, 'fct_lines': 253, 'quarantine_lines': 6, 'source_total': 7293860.26, 'fct_plus_quarantine_total': 7293860.26}, 'loaded': {'"raw".mysql_customers': 54, '"raw".mysql_products': 27, '"raw".mysql_orders': 106, '"raw".mysql_order_items': 259, '"raw".mongo_reviews': 158, '"raw".mongo_navigation_events': 508}, 'reused_s3_batch': True}
+[2026-11-04T01:58:25.793+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T01:58:25.849+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dw_pipeline, task_id=register_result, run_id=dw_02_reejecucion_lote_inicial, execution_date=20261104T015624, start_date=20261104T015824, end_date=20261104T015825
+[2026-11-04T01:58:25.887+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-04T01:58:25.916+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T01:58:25.918+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

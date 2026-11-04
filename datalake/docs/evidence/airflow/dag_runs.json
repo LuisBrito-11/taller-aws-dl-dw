@@ -1,0 +1,130 @@
+﻿{
+  "dag_runs": [
+    {
+      "conf": {},
+      "dag_id": "news_pipeline",
+      "dag_run_id": "scheduled__2026-11-04T00:00:00+00:00",
+      "data_interval_end": "2026-11-04T00:30:00+00:00",
+      "data_interval_start": "2026-11-04T00:00:00+00:00",
+      "end_date": "2026-11-04T00:57:32.484597+00:00",
+      "execution_date": "2026-11-04T00:00:00+00:00",
+      "external_trigger": false,
+      "last_scheduling_decision": "2026-11-04T00:57:32.481069+00:00",
+      "logical_date": "2026-11-04T00:00:00+00:00",
+      "note": null,
+      "run_type": "scheduled",
+      "start_date": "2026-11-04T00:55:58.696830+00:00",
+      "state": "success"
+    },
+    {
+      "conf": {},
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_01_nuevo_lote",
+      "data_interval_end": "2026-11-04T00:30:00+00:00",
+      "data_interval_start": "2026-11-04T00:00:00+00:00",
+      "end_date": "2026-11-04T01:01:11.340114+00:00",
+      "execution_date": "2026-11-04T00:59:33.315140+00:00",
+      "external_trigger": true,
+      "last_scheduling_decision": "2026-11-04T01:01:11.336857+00:00",
+      "logical_date": "2026-11-04T00:59:33.315140+00:00",
+      "note": null,
+      "run_type": "manual",
+      "start_date": "2026-11-04T00:59:34.394612+00:00",
+      "state": "success"
+    },
+    {
+      "conf": {
+        "reprocess_run_id": "initial_load_01"
+      },
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_02_reproceso_initial",
+      "data_interval_end": "2026-11-04T00:30:00+00:00",
+      "data_interval_start": "2026-11-04T00:00:00+00:00",
+      "end_date": "2026-11-04T01:02:44.808089+00:00",
+      "execution_date": "2026-11-04T00:59:33.811364+00:00",
+      "external_trigger": true,
+      "last_scheduling_decision": "2026-11-04T01:02:44.804791+00:00",
+      "logical_date": "2026-11-04T00:59:33.811364+00:00",
+      "note": null,
+      "run_type": "manual",
+      "start_date": "2026-11-04T01:01:12.379897+00:00",
+      "state": "success"
+    },
+    {
+      "conf": {
+        "fail_at": "publish_silver",
+        "fail_attempts": 5,
+        "reprocess_run_id": "initial_load_01"
+      },
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_03_fallo_controlado",
+      "data_interval_end": "2026-11-04T00:30:00+00:00",
+      "data_interval_start": "2026-11-04T00:00:00+00:00",
+      "end_date": "2026-11-04T01:07:18.004291+00:00",
+      "execution_date": "2026-11-04T00:59:34.304983+00:00",
+      "external_trigger": true,
+      "last_scheduling_decision": "2026-11-04T01:07:18.000898+00:00",
+      "logical_date": "2026-11-04T00:59:34.304983+00:00",
+      "note": null,
+      "run_type": "manual",
+      "start_date": "2026-11-04T01:02:45.847388+00:00",
+      "state": "failed"
+    },
+    {
+      "conf": {
+        "reprocess_run_id": "initial_load_01"
+      },
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_04_reejecucion_tras_fallo",
+      "data_interval_end": "2026-11-04T00:30:00+00:00",
+      "data_interval_start": "2026-11-04T00:00:00+00:00",
+      "end_date": "2026-11-04T01:08:46.096306+00:00",
+      "execution_date": "2026-11-04T00:59:34.957637+00:00",
+      "external_trigger": true,
+      "last_scheduling_decision": "2026-11-04T01:08:46.093140+00:00",
+      "logical_date": "2026-11-04T00:59:34.957637+00:00",
+      "note": null,
+      "run_type": "manual",
+      "start_date": "2026-11-04T01:07:19.041936+00:00",
+      "state": "success"
+    },
+    {
+      "conf": {
+        "fail_at": "enrich",
+        "fail_attempts": 1,
+        "reprocess_run_id": "initial_load_01"
+      },
+      "dag_id": "news_pipeline",
+      "dag_run_id": "demo_05_fallo_transitorio_retry",
+      "data_interval_end": "2026-11-04T00:30:00+00:00",
+      "data_interval_start": "2026-11-04T00:00:00+00:00",
+      "end_date": "2026-11-04T01:11:10.477398+00:00",
+      "execution_date": "2026-11-04T00:59:35.754072+00:00",
+      "external_trigger": true,
+      "last_scheduling_decision": "2026-11-04T01:11:10.474072+00:00",
+      "logical_date": "2026-11-04T00:59:35.754072+00:00",
+      "note": null,
+      "run_type": "manual",
+      "start_date": "2026-11-04T01:08:47.134989+00:00",
+      "state": "success"
+    },
+    {
+      "conf": {},
+      "dag_id": "news_pipeline",
+      "dag_run_id": "scheduled__2026-11-04T00:30:00+00:00",
+      "data_interval_end": "2026-11-04T01:00:00+00:00",
+      "data_interval_start": "2026-11-04T00:30:00+00:00",
+      "end_date": "2026-11-04T01:12:52.665813+00:00",
+      "execution_date": "2026-11-04T00:30:00+00:00",
+      "external_trigger": false,
+      "last_scheduling_decision": "2026-11-04T01:12:52.662663+00:00",
+      "logical_date": "2026-11-04T00:30:00+00:00",
+      "note": null,
+      "run_type": "scheduled",
+      "start_date": "2026-11-04T01:11:29.263055+00:00",
+      "state": "success"
+    }
+  ],
+  "total_entries": 7
+}
+

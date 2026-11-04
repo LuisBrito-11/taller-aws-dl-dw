@@ -1,0 +1,50 @@
+﻿d41f7add4fef
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=news_pipeline/run_id=demo_05_fallo_transitorio_retry/task_id=enrich/attempt=1.log
+[2026-11-04T01:08:58.750+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-04T01:08:58.789+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: news_pipeline.enrich demo_05_fallo_transitorio_retry [queued]>
+[2026-11-04T01:08:58.801+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: news_pipeline.enrich demo_05_fallo_transitorio_retry [queued]>
+[2026-11-04T01:08:58.802+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-04T01:08:58.816+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): enrich> on 2026-11-04 00:59:35.754072+00:00
+[2026-11-04T01:08:58.827+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=563) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-04T01:08:58.827+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'news_pipeline', 'enrich', 'demo_05_fallo_transitorio_retry', '--job-id', '66', '--raw', '--subdir', 'DAGS_FOLDER/news_pipeline.py', '--cfg-path', '/tmp/tmp133ratw4']
+[2026-11-04T01:08:58.828+0000] {standard_task_runner.py:64} INFO - Started process 565 to run task
+[2026-11-04T01:08:58.828+0000] {standard_task_runner.py:91} INFO - Job 66: Subtask enrich
+[2026-11-04T01:08:58.901+0000] {task_command.py:426} INFO - Running <TaskInstance: news_pipeline.enrich demo_05_fallo_transitorio_retry [running]> on host d41f7add4fef
+[2026-11-04T01:08:59.053+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-gr02-user-4' AIRFLOW_CTX_DAG_ID='news_pipeline' AIRFLOW_CTX_TASK_ID='enrich' AIRFLOW_CTX_EXECUTION_DATE='2026-11-04T00:59:35.754072+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='demo_05_fallo_transitorio_retry'
+[2026-11-04T01:08:59.055+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-04T01:08:59.056+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-04T01:08:59.056+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 460, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/news_pipeline.py", line 98, in enrich
+    _maybe_fail("enrich")
+  File "/opt/airflow/dags/news_pipeline.py", line 42, in _maybe_fail
+    raise RuntimeError(f"FALLO CONTROLADO en '{step}' (intento {ctx['ti'].try_number})")
+RuntimeError: FALLO CONTROLADO en 'enrich' (intento 1)
+[2026-11-04T01:08:59.073+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=news_pipeline, task_id=enrich, run_id=demo_05_fallo_transitorio_retry, execution_date=20261104T005935, start_date=20261104T010858, end_date=20261104T010859
+[2026-11-04T01:08:59.086+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 66 for task enrich (FALLO CONTROLADO en 'enrich' (intento 1); 565)
+[2026-11-04T01:08:59.123+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-11-04T01:08:59.158+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-11-04T01:08:59.160+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+

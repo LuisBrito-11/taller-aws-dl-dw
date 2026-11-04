@@ -1,0 +1,63 @@
+{
+  "dag_id": "dw_pipeline",
+  "run_id": "dw_05_cambio_scd2",
+  "conf": {
+    "batch_id": "batch_003_scd2",
+    "mode": "incremental"
+  },
+  "state": "success",
+  "tasks": {
+    "dbt_seed": {
+      "state": "success",
+      "try_number": 1
+    },
+    "dbt_run_intermediate": {
+      "state": "success",
+      "try_number": 1
+    },
+    "dbt_snapshot": {
+      "state": "success",
+      "try_number": 1
+    },
+    "dbt_run_quarantine": {
+      "state": "success",
+      "try_number": 1
+    },
+    "extract_sources": {
+      "state": "success",
+      "try_number": 1
+    },
+    "dbt_run_marts": {
+      "state": "success",
+      "try_number": 1
+    },
+    "validate_connections": {
+      "state": "success",
+      "try_number": 1
+    },
+    "reconcile": {
+      "state": "success",
+      "try_number": 1
+    },
+    "verify_s3_files": {
+      "state": "success",
+      "try_number": 1
+    },
+    "dbt_test": {
+      "state": "success",
+      "try_number": 1
+    },
+    "dbt_deps": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_redshift": {
+      "state": "success",
+      "try_number": 1
+    },
+    "register_result": {
+      "state": "success",
+      "try_number": 1
+    }
+  }
+}
